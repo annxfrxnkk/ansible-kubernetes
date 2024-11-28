@@ -1,7 +1,4 @@
 # ansible-disbox
-This is a custom created ansible automation script concept which uses distrobox
-
-
 
 <br />
 <div align="center">
