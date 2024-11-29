@@ -11,7 +11,7 @@
   <h3 align="center">Ansible + Distrobox</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    A project that combines Ansible and Distrobox
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
