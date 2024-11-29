@@ -21,7 +21,7 @@
   </p>
 </div>
 
-[![Next][Next.js]][Next-url]
+[![Ansible][Ansible]][Ansible-url]
 
 
 <!-- TABLE OF CONTENTS -->
