@@ -96,16 +96,19 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Install 
+Install distrobox on your specific distrobution 
 * Arch Linux
+  
   ```sh
   sudo pacman -S distrobox podman
   ```
-  * Debian/Ubuntu
+* Debian/Ubuntu
+  
   ```sh
   sudo apt install distrobox -y
   ```
-  * Fedora
+* Fedora
+  
   ```sh
   sudo dnf install distrobox podman
   ```
