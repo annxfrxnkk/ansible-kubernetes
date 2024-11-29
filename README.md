@@ -103,5 +103,5 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[Ansible]: https://img.shields.io/badge/ansible-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Ansible]: https://img.shields.io/badge/ansible-000000?style=for-the-badge&logo=#EE0000&logoColor=white
 [Ansible-url]: https://ansible.com/
