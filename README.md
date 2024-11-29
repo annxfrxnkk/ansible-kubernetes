@@ -96,10 +96,18 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+Install 
+* Arch Linux
   ```sh
-  npm install npm@latest -g
+  sudo pacman -S distrobox podman
+  ```
+  * Debian/Ubuntu
+  ```sh
+  sudo apt install distrobox -y
+  ```
+  * Fedora
+  ```sh
+  sudo dnf install distrobox podman
   ```
 
 ### Installation
