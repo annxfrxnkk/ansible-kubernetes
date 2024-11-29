@@ -22,6 +22,7 @@
 </div>
 
 [![Ansible][Ansible]][Ansible-url]
+[![Podman][Podman]][Podman-url]
 
 
 <!-- TABLE OF CONTENTS -->
@@ -105,3 +106,5 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- MARKDOWN LINKS & IMAGES -->
 [Ansible]: https://img.shields.io/badge/ansible-000000?style=for-the-badge&logo=ansible&logoColor=white
 [Ansible-url]: https://ansible.com/
+[Podman]: https://img.shields.io/badge/podman-000000?style=for-the-badge&logo=podman&logoColor=white
+[Podman-url]: https://ansible.com/
