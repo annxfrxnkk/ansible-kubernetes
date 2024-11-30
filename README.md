@@ -17,7 +17,7 @@
   </p>
 </div>
 
-[![Ansible][Ansible]][Ansible-url]
+        [![Ansible][Ansible]][Ansible-url]
 <br />
 [![Podman][Podman]][Podman-url]
 
