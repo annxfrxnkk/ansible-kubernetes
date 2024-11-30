@@ -18,11 +18,10 @@
   </p>
 </div>
 
-<p align="center">
   * [![Ansible][Ansible]][Ansible-url]
-  <br />
+
   * [![Podman][Podman]][Podman-url]
-</p>
+
 
 <!-- TABLE OF CONTENTS -->
 <details>
