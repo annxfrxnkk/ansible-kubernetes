@@ -61,6 +61,22 @@ You'll need any of those following Hypervisors to install the provided Arch Linu
 
 <img src="https://github.com/user-attachments/assets/339ac675-a873-4bcc-80a9-dd1a7cd9e745" alt="libvirt" width="24" height="24"> Libvirt <br />
 
+Install Ansible on your controller host
+
+* Arch Linux
+   ```sh
+   sudo pacman -S ansible
+   ```
+
+* Debian/Ubuntu
+   ```sh
+   sudo apt-get install ansible
+   ```
+* Fedora
+   ```sh
+   sudo dnf install ansible
+   ```
+
 When u do have one installed already, u can fetch my ansible script from my repo and start it
   
   1. Clone the repo
