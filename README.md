@@ -60,19 +60,18 @@ You'll need any of those following Hypervisors to install the provided Arch Linu
 <img src="https://github.com/user-attachments/assets/c1694073-bc32-4610-950d-1593e26fef5e" alt="virtualbox" width="24" height="24"> Virtualbox <br />
 
 <img src="https://github.com/user-attachments/assets/339ac675-a873-4bcc-80a9-dd1a7cd9e745" alt="libvirt" width="24" height="24"> Libvirt <br />
+
+When u do have one installed already, u can fetch my ansible script from my repo and start it
   
-  ```sh
-  sudo pacman -S distrobox podman
-  ```
+  1. Clone the repo
+   ```sh
+   git clone https://github.com/annxfrxnkk/ansible-disbox.git
+   ```
 
 ### Usage
 
 After installing everything on your preferrable system, follow the steps below
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/annxfrxnkk/ansible-disbox.git
-   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
