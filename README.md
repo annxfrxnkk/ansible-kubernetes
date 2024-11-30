@@ -12,6 +12,7 @@
 
   <p align="center">
 [![Podman][Podman]][Podman-url]
+    <br />
     A project that combines Ansible and Distrobox
     <br />
   </p>
