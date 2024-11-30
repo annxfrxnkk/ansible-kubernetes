@@ -23,6 +23,8 @@
 <br />
 [![Kubernetes][Kubernetes]][K8s-url]
 
+<img src="https://user-images.githubusercontent.com/1215767/34348387-a2e64588-ea4d-11e7-8267-a43365103afe.png" alt="Chrome" width="16px" height="16px" /> Chrome
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
