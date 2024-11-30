@@ -57,7 +57,7 @@ You'll need any of those following Hypervisors to install the provided Arch Linu
 <br />
 ![image](https://github.com/user-attachments/assets/5ed349d4-a17e-4b41-ba61-344275aaa280) VMWare
 <br />
-Virtualbox
+![image](https://github.com/user-attachments/assets/92429a18-c048-40cd-8ee3-5c22c1fc21fe) Virtualbox
 <br />
 libvirtd
 <br />
@@ -65,16 +65,6 @@ libvirtd
   
   ```sh
   sudo pacman -S distrobox podman
-  ```
-* Debian/Ubuntu
-  
-  ```sh
-  sudo apt install distrobox -y
-  ```
-* Fedora
-  
-  ```sh
-  sudo dnf install distrobox
   ```
 
 ### Usage
