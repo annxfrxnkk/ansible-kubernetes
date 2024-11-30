@@ -64,18 +64,18 @@ You'll need any of those following Hypervisors to install the provided Arch Linu
 Install Ansible on your controller host
 
 * Arch Linux
-   ```sh
-   sudo pacman -S ansible
-   ```
+```sh
+sudo pacman -S ansible
+```
 
 * Debian/Ubuntu
-   ```sh
-   sudo apt-get install ansible
-   ```
+```sh
+sudo apt-get install ansible
+```
 * Fedora
-   ```sh
-   sudo dnf install ansible
-   ```
+```sh
+sudo dnf install ansible
+```
 
 When u do have one installed already, u can fetch my ansible script from my repo and start it
   
