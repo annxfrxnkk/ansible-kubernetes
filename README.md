@@ -11,15 +11,14 @@
   <h3 align="center">Ansible + Distrobox</h3>
 
   <p align="center">
-[![Podman][Podman]][Podman-url]
     <br />
     A project that combines Ansible and Distrobox
     <br />
   </p>
 </div>
 
-[![Ansible][Ansible]][Ansible-url]
-[![Podman][Podman]][Podman-url]
+* [![Ansible][Ansible]][Ansible-url]
+* [![Podman][Podman]][Podman-url]
 
 
 <!-- TABLE OF CONTENTS -->
