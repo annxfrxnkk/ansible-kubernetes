@@ -18,9 +18,8 @@
   </p>
 </div>
 
-  * [![Ansible][Ansible]][Ansible-url]
-
-  * [![Podman][Podman]][Podman-url]
+* [![Ansible][Ansible]][Ansible-url]
+* [![Podman][Podman]][Podman-url]
 
 
 <!-- TABLE OF CONTENTS -->
