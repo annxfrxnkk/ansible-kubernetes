@@ -52,8 +52,8 @@
 
 You'll need any of those following Hypervisors to install the provided Arch Linux virtual disk
 <br />
+![image](https://github.com/user-attachments/assets/47504134-ab0e-495c-b5b1-b7d3981fb92d)
 
-![image](https://github.com/user-attachments/assets/65cf9690-9a4e-45df-ad02-8837626ca8f3)
 <img src="https://user-images.githubusercontent.com/1215767/34348387-a2e64588-ea4d-11e7-8267-a43365103afe.png" alt="Chrome" width="16px" height="16px" /> Proxmox
   
   ```sh
