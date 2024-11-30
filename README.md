@@ -12,16 +12,17 @@
 
   <p align="center">
     A project that combines Ansible and Distrobox
-    <h1> * [![Ansible][Ansible]][Ansible-url] </h1>
+  
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
     <p * [![Ansible][Ansible]][Ansible-url] >
   </p>
 </div>
 
-
+<p align="center">
+* [![Ansible][Ansible]][Ansible-url]
 * [![Podman][Podman]][Podman-url]
-
+</p>
 
 <!-- TABLE OF CONTENTS -->
 <details>
