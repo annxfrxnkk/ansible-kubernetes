@@ -65,7 +65,7 @@ When u do have one installed already, u can fetch my ansible script from my repo
   
   1. Clone the repo
    ```sh
-   git clone https://github.com/annxfrxnkk/ansible-disbox.git
+   https://github.com/annxfrxnkk/ansible-k8s.git
    ```
 
 ### Usage
