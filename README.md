@@ -60,6 +60,7 @@
 
 <img src="https://github.com/user-attachments/assets/339ac675-a873-4bcc-80a9-dd1a7cd9e745" alt="libvirt" width="24" height="24"> Libvirt <br />
 
+
 2. Install Ansible on your controller host
 
 * Arch Linux
