@@ -1,4 +1,4 @@
-# ansible-disbox
+# ansible-k8s
 
 
 <!-- PROJECT LOGO -->
@@ -8,7 +8,7 @@
     <img src="images/system-integration.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Ansible + Distrobox</h3>
+  <h3 align="center">Ansible + Kubernetes</h3>
 
   <p align="center">
     <br />
