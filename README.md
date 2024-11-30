@@ -53,14 +53,10 @@
 You'll need any of those following Hypervisors to install the provided Arch Linux virtual disk
 <br />
 
-![image](https://github.com/user-attachments/assets/a97af744-81ae-4012-b99b-a936eb59fe04) Proxmox 
-<br />
+![image](https://github.com/user-attachments/assets/f5a81eba-5f8f-4f0c-84b5-052f08187dff) Proxmox 
 ![image](https://github.com/user-attachments/assets/5ed349d4-a17e-4b41-ba61-344275aaa280) VMWare
-<br />
 ![image](https://github.com/user-attachments/assets/92429a18-c048-40cd-8ee3-5c22c1fc21fe) Virtualbox
-<br />
-libvirtd
-<br />
+libvirt
 
   
   ```sh
