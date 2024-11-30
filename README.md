@@ -65,9 +65,9 @@ Install distrobox on your specific distrobution
   sudo dnf install distrobox
   ```
 
-### Installation
+### Usage
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+After installing everything on your preferrable system, follow the steps below
 
 2. Clone the repo
    ```sh
