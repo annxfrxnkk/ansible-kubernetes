@@ -52,9 +52,10 @@
 
 You'll need any of those following Hypervisors to install the provided Arch Linux virtual disk
 <br />
-![image](https://github.com/user-attachments/assets/47504134-ab0e-495c-b5b1-b7d3981fb92d)
 
-<img src="https://user-images.githubusercontent.com/1215767/34348387-a2e64588-ea4d-11e7-8267-a43365103afe.png" alt="Chrome" width="16px" height="16px" /> Proxmox
+![image](https://github.com/user-attachments/assets/a97af744-81ae-4012-b99b-a936eb59fe04) Proxmox
+![image](https://github.com/user-attachments/assets/5ed349d4-a17e-4b41-ba61-344275aaa280) VMWare
+
   
   ```sh
   sudo pacman -S distrobox podman
