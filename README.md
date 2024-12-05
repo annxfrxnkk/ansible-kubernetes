@@ -84,7 +84,7 @@ When u do have one installed already, u can fetch my ansible script from my repo
    https://github.com/annxfrxnkk/ansible-k8s.git
    ```
 
-### Usage
+### (Usage)
 
 After installing everything on your preferrable system, follow the steps below
 
