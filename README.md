@@ -110,9 +110,12 @@ When u do have one installed already, u can fetch my ansible script from my repo
 
 | vars | description | hypervisor | 
 | --- | --- | --- |
-| `vm.create` | installs vm's on proxmox hypervisor target | $${\color{orange}Orange}$$ |
+| `vm.create` | installs vm's on proxmox hypervisor target | proxmox |
+| `vm.remove` | remove vm's on proxmox hypervisor target | proxmox |
+| `vm.clone` | clone vm's on proxmox hypervisor target | proxmox |
+| `vm.create` | installs vm's on vmware hypervisor target | vmware |
 | `vm.remove` | installs vm's on vmware hypervisor target | proxmox |
-| `vm.clone` | installs vm's on kvm hypervisor target | proxmox |
+| `vm.clone` | installs vm's on vmware hypervisor target | proxmox |
 
 <h3> os tasks </h3>
 
