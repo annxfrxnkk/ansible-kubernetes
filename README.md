@@ -48,7 +48,7 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Prerequisites
+### (Prerequisites)
 
 <h3> 1. You'll need any of those following Hypervisors to install the provided Arch Linux virtual disk </h3>
 
