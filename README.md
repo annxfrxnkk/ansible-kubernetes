@@ -86,23 +86,25 @@ When u do have one installed already, u can fetch my ansible script from my repo
 
 ### (Usage)
 
-<h3> 1. template </h3>
+<h3> template </h3>
 
-| Command | Description |
+| vars | description |
 | --- | --- |
-| `git status` | List all *new or modified* files |
-| `git diff` | Show file differences that **haven't been** staged |
+| `archlinux` | installs vm with the archlinux template |
+| `ubuntu` | installs vm with the ubuntu template |
+| `debian` | installs vm with the debian template |
+| `fedora` | installs vm with the fedora template |
 
 <h3> vm tasks </h3>
 
-| Command | Description |
+| vars | description |
 | --- | --- |
 | `git status` | List all *new or modified* files |
 | `git diff` | Show file differences that **haven't been** staged |
 
 <h3> os tasks </h3>
 
-| Command | Description |
+| vars | description |
 | --- | --- |
 | `git status` | List all *new or modified* files |
 | `git diff` | Show file differences that **haven't been** staged |
