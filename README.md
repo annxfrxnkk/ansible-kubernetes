@@ -67,7 +67,6 @@
 ```sh
 sudo pacman -S ansible
 ```
-
 * Debian/Ubuntu
 ```sh
 sudo apt-get install ansible
@@ -78,12 +77,11 @@ sudo dnf install ansible
 ```
 <br />
 
-When u do have one installed already, u can fetch my ansible script from my repo and start it
   
-  1. Clone the repo
-   ```sh
-   https://github.com/annxfrxnkk/ansible-k8s.git
-   ```
+1. Clone the repo
+```sh
+https://github.com/annxfrxnkk/ansible-k8s.git
+```
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
