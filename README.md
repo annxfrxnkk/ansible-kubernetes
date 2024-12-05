@@ -129,9 +129,41 @@ When u do have one installed already, u can fetch my ansible script from my repo
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+<h3> template </h3>
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+| vars | description |
+| --- | --- |
+| `archlinux` | installs vm with the archlinux template |
+| `ubuntu` | installs vm with the ubuntu template | 
+| `debian` | installs vm with the debian template |
+| `fedora` | installs vm with the fedora template |
+
+<h3> vm tasks </h3>
+
+<h4> hypervisor </h4>
+
+| vars | description |
+| --- | --- |
+| `proxmox` | installs vm's on proxmox hypervisor target |
+| `vmware` | installs vm's on vmware hypervisor target |
+| `libvirt` | installs vm's on kvm hypervisor target |
+| `virtualbox` | installs vm's on virtualbox hypervisor target |
+
+<h4> task </h4>
+
+| vars | description | 
+| --- | --- |
+| `vm.create` | installs vm's on any hypervisor target | 
+| `vm.remove` | remove vm's on any hypervisor target | 
+| `vm.clone` | clone vm's on any hypervisor target | 
+
+<h3> os tasks </h3>
+
+| vars | description |
+| --- | --- |
+| `git status` | List all *new or modified* files |
+| `git diff` | Show file differences that **haven't been** staged |
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
