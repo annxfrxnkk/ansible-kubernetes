@@ -86,7 +86,10 @@ When u do have one installed already, u can fetch my ansible script from my repo
 
 ### (Usage)
 
-After installing everything on your preferrable system, follow the steps below
+| Command | Description |
+| --- | --- |
+| `git status` | List all *new or modified* files |
+| `git diff` | Show file differences that **haven't been** staged |
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
