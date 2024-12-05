@@ -92,7 +92,7 @@ https://github.com/annxfrxnkk/ansible-kvm.git
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-<h3> template </h3>
+<h3> / * template * /  </h3>
 
 | vars | description |
 | --- | --- |
@@ -101,7 +101,7 @@ https://github.com/annxfrxnkk/ansible-kvm.git
 | `debian` | installs vm with the debian template |
 | `fedora` | installs vm with the fedora template |
 
-<h3> vm tasks </h3>
+<h3> / * vm tasks * /</h3>
 
 <h4> hypervisor </h4>
 
@@ -120,7 +120,7 @@ https://github.com/annxfrxnkk/ansible-kvm.git
 | `vm.remove` | remove vm's on any hypervisor target | 
 | `vm.clone` | clone vm's on any hypervisor target | 
 
-<h3> os tasks </h3>
+<h3> / * os tasks */ </h3>
 
 | vars | description |
 | --- | --- |
