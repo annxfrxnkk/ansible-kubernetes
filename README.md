@@ -106,14 +106,13 @@ When u do have one installed already, u can fetch my ansible script from my repo
 | `libvirt` | installs vm's on kvm hypervisor target |
 | `virtualbox` | installs vm's on virtualbox hypervisor target |
 
-<h4> hypervisor </h4>
+<h4> task </h4>
 
 | vars | description |
 | --- | --- |
-| `proxmox` | installs vm's on proxmox hypervisor target |
-| `vmware` | installs vm's on vmware hypervisor target |
-| `libvirt` | installs vm's on kvm hypervisor target |
-| `virtualbox` | installs vm's on virtualbox hypervisor target |
+| `vm.create` | installs vm's on proxmox hypervisor target |
+| `vm.remove` | installs vm's on vmware hypervisor target |
+| `vm.clone` | installs vm's on kvm hypervisor target |
 
 <h3> os tasks </h3>
 
