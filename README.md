@@ -81,7 +81,7 @@ sudo dnf install ansible
 <h3> 3. clone the repo to your controller machine </h3>
   
 ```sh
-https://github.com/annxfrxnkk/ansible-k8s.git
+https://github.com/annxfrxnkk/ansible-kvm.git
 ```
 
 
