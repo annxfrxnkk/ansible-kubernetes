@@ -92,7 +92,7 @@ https://github.com/annxfrxnkk/ansible-kvm.git
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-<h3> | template |  </h3>
+<h3> < template >  </h3>
 
 | vars | description |
 | --- | --- |
