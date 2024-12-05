@@ -12,7 +12,7 @@
 
   <p align="center">
     <br />
-    A project that combines Ansible and Hypervisor
+    An ansible project that is used to deploy VMs and other services
     <br />
   </p>
 </div>
