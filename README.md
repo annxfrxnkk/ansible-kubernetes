@@ -92,7 +92,7 @@ When u do have one installed already, u can fetch my ansible script from my repo
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-## template
+<h3> template </h3>
 
 | vars | description |
 | --- | --- |
