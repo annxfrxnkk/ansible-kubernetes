@@ -76,7 +76,7 @@ sudo apt-get install ansible
 ```sh
 sudo dnf install ansible
 ```
-</ br>
+<br />
 
 When u do have one installed already, u can fetch my ansible script from my repo and start it
   
