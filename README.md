@@ -77,8 +77,8 @@ sudo dnf install ansible
 ```
 <br />
 
+<h3> 2. Install Ansible on your controller host </h3>
   
-1. Clone the repo
 ```sh
 https://github.com/annxfrxnkk/ansible-k8s.git
 ```
