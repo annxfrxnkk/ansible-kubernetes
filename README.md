@@ -86,6 +86,22 @@ When u do have one installed already, u can fetch my ansible script from my repo
 
 ### (Usage)
 
+<h3> 1. template </h3>
+
+| Command | Description |
+| --- | --- |
+| `git status` | List all *new or modified* files |
+| `git diff` | Show file differences that **haven't been** staged |
+
+<h3> vm tasks </h3>
+
+| Command | Description |
+| --- | --- |
+| `git status` | List all *new or modified* files |
+| `git diff` | Show file differences that **haven't been** staged |
+
+<h3> os tasks </h3>
+
 | Command | Description |
 | --- | --- |
 | `git status` | List all *new or modified* files |
