@@ -1,4 +1,4 @@
-# ansible-k8s
+# ansible-kvm
 
 
 <!-- PROJECT LOGO -->
@@ -8,11 +8,11 @@
     <img src="images/system-integration.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Ansible + Kubernetes</h3>
+  <h3 align="center">Ansible + KVM</h3>
 
   <p align="center">
     <br />
-    A project that combines Ansible and Distrobox
+    A project that combines Ansible and Hypervisor
     <br />
   </p>
 </div>
