@@ -124,8 +124,9 @@ https://github.com/annxfrxnkk/ansible-kvm.git
 
 | vars | description |
 | --- | --- |
-| `git status` | List all *new or modified* files |
-| `git diff` | Show file differences that **haven't been** staged |
+| `pkg.install` | install any package inside your desired distro |
+| `pkg.remove` | remove any package inside your desired distro |
+| `pkg.update` | update/upgrade your distro |
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
