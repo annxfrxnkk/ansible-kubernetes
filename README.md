@@ -108,14 +108,11 @@ When u do have one installed already, u can fetch my ansible script from my repo
 
 <h4> task </h4>
 
-| vars | description | hypervisor | 
-| --- | --- | --- |
-| `vm.create` | installs vm's on proxmox hypervisor target | proxmox |
-| `vm.remove` | remove vm's on proxmox hypervisor target | proxmox |
-| `vm.clone` | clone vm's on proxmox hypervisor target | proxmox |
-| `vm.create` | installs vm's on vmware hypervisor target | vmware |
-| `vm.remove` | installs vm's on vmware hypervisor target | proxmox |
-| `vm.clone` | installs vm's on vmware hypervisor target | proxmox |
+| vars | description | 
+| --- | --- |
+| `vm.create` | installs vm's on any hypervisor target | 
+| `vm.remove` | remove vm's on any hypervisor target | 
+| `vm.clone` | clone vm's on any hypervisor target | 
 
 <h3> os tasks </h3>
 
