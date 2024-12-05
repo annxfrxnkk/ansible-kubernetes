@@ -91,7 +91,7 @@ When u do have one installed already, u can fetch my ansible script from my repo
 | vars | description |
 | --- | --- |
 | `archlinux` | installs vm with the archlinux template |
-| `ubuntu` | installs vm with the ubuntu template |
+| `ubuntu` | installs vm with the ubuntu template | 
 | `debian` | installs vm with the debian template |
 | `fedora` | installs vm with the fedora template |
 
@@ -108,11 +108,11 @@ When u do have one installed already, u can fetch my ansible script from my repo
 
 <h4> task </h4>
 
-| vars | description |
-| --- | --- |
-| `vm.create` | installs vm's on proxmox hypervisor target |
-| `vm.remove` | installs vm's on vmware hypervisor target |
-| `vm.clone` | installs vm's on kvm hypervisor target |
+| vars | description | hypervisor | 
+| --- | --- | --- |
+| `vm.create` | installs vm's on proxmox hypervisor target | **proxmox** |
+| `vm.remove` | installs vm's on vmware hypervisor target | proxmox |
+| `vm.clone` | installs vm's on kvm hypervisor target | proxmox |
 
 <h3> os tasks </h3>
 
