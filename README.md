@@ -97,10 +97,23 @@ When u do have one installed already, u can fetch my ansible script from my repo
 
 <h3> vm tasks </h3>
 
+<h4> hypervisor </h4>
+
 | vars | description |
 | --- | --- |
-| `git status` | List all *new or modified* files |
-| `git diff` | Show file differences that **haven't been** staged |
+| `proxmox` | installs vm's on proxmox hypervisor target |
+| `vmware` | installs vm's on vmware hypervisor target |
+| `libvirt` | installs vm's on kvm hypervisor target |
+| `virtualbox` | installs vm's on virtualbox hypervisor target |
+
+<h4> hypervisor </h4>
+
+| vars | description |
+| --- | --- |
+| `proxmox` | installs vm's on proxmox hypervisor target |
+| `vmware` | installs vm's on vmware hypervisor target |
+| `libvirt` | installs vm's on kvm hypervisor target |
+| `virtualbox` | installs vm's on virtualbox hypervisor target |
 
 <h3> os tasks </h3>
 
