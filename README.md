@@ -19,7 +19,6 @@
 
 [![Ansible][Ansible]][Ansible-url] 
 <br />
-<br />
 [![Kubernetes][Kubernetes]][K8s-url]
 
 
