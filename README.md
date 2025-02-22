@@ -8,7 +8,7 @@
     <img src="images/system-integration.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Ansible + KVM</h3>
+  <h3 align="center">Ansible + K3s</h3>
 
   <p align="center">
     <br />
