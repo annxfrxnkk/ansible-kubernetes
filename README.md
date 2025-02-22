@@ -48,7 +48,7 @@
 
 ### (Prerequisites)
 
-<h3> 1. you'll need any of those following Hypervisors </h3>
+<h3> 1. you'll just need a Linux installation </h3>
 
 <img src="https://github.com/user-attachments/assets/f5a81eba-5f8f-4f0c-84b5-052f08187dff" alt="proxmox" width="24" height="24"> Proxmox <br />
 
