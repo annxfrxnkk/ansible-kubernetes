@@ -19,7 +19,6 @@
 
 [![Ansible][Ansible]][Ansible-url] 
 <br />
-[![Podman][Podman]][Podman-url]
 <br />
 [![Kubernetes][Kubernetes]][K8s-url]
 
