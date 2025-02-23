@@ -62,9 +62,6 @@
 
 <br />
 
-<h3> 2. install Ansible on your controller host </h3>
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
