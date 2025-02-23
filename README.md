@@ -48,7 +48,7 @@
 
 ### (Prerequisites)
 
-<h3> 1. you'll just need a Linux installation </h3>
+<h3> 1. Linux Installation </h3>
 
 | Distro |
 | --- |
@@ -56,31 +56,13 @@
 | `ubuntu` | 
 | `debian` |
 | `fedora` |
+| `redhat` |
+
 
 
 <br />
 
 <h3> 2. install Ansible on your controller host </h3>
-
-* Arch Linux
-```sh
-sudo pacman -S ansible
-```
-* Debian/Ubuntu
-```sh
-sudo apt-get install ansible
-```
-* Fedora
-```sh
-sudo dnf install ansible
-```
-<br />
-
-<h3> 3. clone the repo to your controller machine </h3>
-  
-```sh
-https://github.com/annxfrxnkk/ansible-kvm.git
-```
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
