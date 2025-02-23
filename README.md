@@ -12,7 +12,7 @@
 
   <p align="center">
     <br />
-    An ansible project that is used to deploy VMs and other services
+    An ansible project that is used to deploy K3s Clusters and other services
     <br />
   </p>
 </div>
