@@ -20,6 +20,7 @@
 [![Ansible][Ansible]][Ansible-url] 
 <br />
 [![Kubernetes][Kubernetes]][K8s-url]
+[![Helm][Helm]][HelmK8s-url]
 
 
 <!-- TABLE OF CONTENTS -->
