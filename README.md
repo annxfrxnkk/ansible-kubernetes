@@ -110,7 +110,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[Helm]: helm-000000?style=for-the-badge&logo=helm&logoColor=white
+[Helm]: https://img.shields.io/badge/helm-0F1689?style=for-the-badge&logo=helm&logoColor=white
 [Helm-url]: https://helm.sh/
 [Ansible]: https://img.shields.io/badge/ansible-000000?style=for-the-badge&logo=ansible&logoColor=white
 [Ansible-url]: https://ansible.com/
