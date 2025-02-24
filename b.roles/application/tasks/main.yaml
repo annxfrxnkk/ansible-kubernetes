@@ -1,0 +1,18 @@
+---
+- name: vars
+  include_vars:
+    file: /home/annefrank/ansible/b.roles/helm/vars/helm-values.yaml
+
+- name: Installing AWX
+  block:
+    - name: Add stable chart repo
+      kubernetes.core.helm_repository:
+        name: "{{ helm_values }}"
+        repo_url: "https://ansible-community.github.io/awx-operator-helm/"
+
+    - name: Deploy latest version of the specified Helm charts with values
+      kubernetes.core.helm:
+        name: "{{ helm_values }}"
+        chart_ref: "{{ helm_values }}/{{ helm_values }}"
+        release_namespace: "{{ helm_values }}"
+        #values: "{{ lookup('template', 'values.yaml') | from_yaml }}"

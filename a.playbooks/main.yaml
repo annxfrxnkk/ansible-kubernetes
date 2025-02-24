@@ -1,0 +1,8 @@
+---
+- name: K3s Cluster Installation
+  hosts: test
+  tasks:
+    - name: Installing Components
+      ansible.builtin.import_role:
+        name: "{{ deploy_type }}"
+        #tasks_from: "{{ application }}/main.yaml"

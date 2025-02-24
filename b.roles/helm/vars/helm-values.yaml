@@ -1,0 +1,5 @@
+---
+helm_install:
+  - "awx-operator"
+  - "cilium"
+  - "nextcloud"

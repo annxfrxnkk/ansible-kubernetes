@@ -1,0 +1,6 @@
+k3s_options:
+  - "--disable kube-proxy"
+  - "--disable service-lb"
+  - "--disable network-policy"
+  - "--disable traefik"
+  - "--cluster-init"
