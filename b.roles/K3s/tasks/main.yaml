@@ -1,7 +1,4 @@
-- name: Including vars file
-  include_vars:
-    file: /home/annefrank/ansible/b.roles/K3s/tasks/values.yaml
-
+---
 - name: Download and install k3s
   shell: "curl -sfL https://get.k3s.io | sh -s - server {{ ' '.join(k3s_options) }}"
   register: k3s_install_output
