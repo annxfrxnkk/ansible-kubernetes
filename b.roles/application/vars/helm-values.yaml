@@ -2,4 +2,4 @@ applications:
   - name: "awx"
     namespace: "awx"
     chart_ref: "ansible/awx-operator"
-    repo_url: "https://galaxy.ansible.com/ansible/awx-operator"
+    repo_url: "https://ansible-community.github.io/awx-operator-helm/"
