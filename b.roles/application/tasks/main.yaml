@@ -3,18 +3,16 @@
   include_vars:
     file: helm-values.yaml
 
-- name: Installing Application
-  block:
-    - name: Add Helm repository for
-      kubernetes.core.helm_repository:
-        name: "{{ item.namespace }}"
-        repo_url: "{{ item.repo_url }}"
-      loop: "{{ app | dict2items }}"
+- name: Add Helm repository for
+  kubernetes.core.helm_repository:
+    name: "{{ item.namespace }}"
+    repo_url: "{{ item.repo_url }}"
+  loop: "{{ app | dict2items }}"
 
-    - name: Deploy Helm chart for
-      kubernetes.core.helm:
-        name: "{{ item.release_name | default(item.chart_ref.split('/')[-1]) }}"
-        chart_ref: "{{ item.chart_ref }}"
-        release_namespace: "{{ item.namespace }}"
-        values_file: "{{ item.values_file }}"
-      loop: "{{ app | dict2items }}"
+- name: Deploy Helm chart for
+  kubernetes.core.helm:
+    name: "{{ item.release_name | default(item.chart_ref.split('/')[-1]) }}"
+    chart_ref: "{{ item.chart_ref }}"
+    release_namespace: "{{ item.namespace }}"
+    values_file: "{{ item.values_file }}"
+  loop: "{{ app | dict2items }}"

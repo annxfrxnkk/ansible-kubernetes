@@ -1,8 +1,8 @@
 # helm-values.yaml
 k8s-dashboard:
-  - namespace: k8s-dashboard
-  - chart_ref: stable/kubernetes-dashboard
-  - repo_url: https://kubernetes.github.io/dashboard/
+  namespace: k8s-dashboard
+  chart_ref: stable/kubernetes-dashboard
+  repo_url: https://kubernetes.github.io/dashboard/
     #values_file: /home/annefrank/ansible/b.roles/helm/vars/k8s-dashboard-values.yaml
 
 awx:
@@ -11,7 +11,6 @@ awx:
   repo_url: https://galaxy.ansible.com/ansible/awx-operator
 
 nextcloud:
-  - namespace: nextcloud
-    chart_ref: bitnami/nextcloud
-    repo_url: https://charts.bitnami.com/bitnami
-    #values_file: /home/annefrank/ansible/b.roles/helm/vars/nextcloud-values.yaml
+  namespace: nextcloud
+  chart_ref: bitnami/nextcloud
+  repo_url: https://charts.bitnami.com/bitnami
