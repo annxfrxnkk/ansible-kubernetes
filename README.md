@@ -60,16 +60,21 @@
 | `fedora` |
 | `redhat` |
 
-
-
 <br />
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- USAGE EXAMPLES -->
 ## Usage
+
+<h3> K3s </h3>
+
+| vars | description |
+| --- | --- |
+| `awx` | installs awx inside a k3s cluster |
+| `nextcloud` | installs nextcloud inside a k3s cluster | 
+| `wiki-js` | installs wiki-js inside a k3s cluster |
+| `kubernetes-dashboard` | installs k8s-dashboard inside a k3s cluster |
 
 <h3> applications </h3>
 
@@ -94,17 +99,8 @@
 
 | vars | description | 
 | --- | --- |
-| `vm.create` | installs vm's on any hypervisor target | 
-| `vm.remove` | remove vm's on any hypervisor target | 
-| `vm.clone` | clone vm's on any hypervisor target | 
-
-<h3> storage </h3>
-
-| vars | description |
-| --- | --- |
-| `pkg.install` | install any package inside your desired distro |
-| `pkg.remove` | remove any package inside your desired distro |
-| `pkg.update` | update/upgrade your distro |
+| `longhorn` | installs vm's on any hypervisor target | 
+| `glusterFS` | remove vm's on any hypervisor target | 
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
