@@ -71,27 +71,26 @@
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-<h3> < template >  </h3>
+<h3> applications </h3>
 
 | vars | description |
 | --- | --- |
-| `archlinux` | installs vm with the archlinux template |
-| `ubuntu` | installs vm with the ubuntu template | 
-| `debian` | installs vm with the debian template |
-| `fedora` | installs vm with the fedora template |
+| `awx` | installs awx inside a k3s cluster |
+| `nextcloud` | installs nextcloud inside a k3s cluster | 
+| `wiki-js` | installs wiki-js inside a k3s cluster |
+| `kubernetes-dashboard` | installs k8s-dashboard inside a k3s cluster |
 
-<h3> < vm tasks > </h3>
-
-<h4> hypervisor </h4>
+<h3> network </h3>
 
 | vars | description |
 | --- | --- |
-| `proxmox` | installs vm's on proxmox hypervisor target |
-| `vmware` | installs vm's on vmware hypervisor target |
-| `libvirt` | installs vm's on kvm hypervisor target |
-| `virtualbox` | installs vm's on virtualbox hypervisor target |
+| `cilium` | installs cilium as network solution inside k3s |
+| `metallb` | installs metallb as network solution inside k3s |
+| `ingress-nginx` | installs ingress-nginx as network solution inside k3s |
+| `HAProxy` | installs HAProxy as network solution inside k3s |
+| `calico` | installs calico as network solution inside k3s |
 
-<h4> task </h4>
+<h3> storage </h3>
 
 | vars | description | 
 | --- | --- |
@@ -99,7 +98,7 @@
 | `vm.remove` | remove vm's on any hypervisor target | 
 | `vm.clone` | clone vm's on any hypervisor target | 
 
-<h3> < os tasks > </h3>
+<h3> storage </h3>
 
 | vars | description |
 | --- | --- |
