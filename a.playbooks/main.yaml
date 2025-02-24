@@ -1,6 +1,6 @@
 ---
 - name: K3s Cluster Installation
-  hosts: test
+  hosts: all
   tasks:
     - name: Installing Components
       ansible.builtin.import_role:
