@@ -19,7 +19,7 @@
 
 [![Ansible][Ansible]][Ansible-url] 
 <br />
-[![Kubernetes][Kubernetes]][K8s-url]
+[![K3s][K3s]][K3s-url]
 <br />
 [![Helm][Helm]][Helm-url]
 
@@ -110,5 +110,5 @@
 [Helm-url]: https://helm.sh/
 [Ansible]: https://img.shields.io/badge/ansible-000000?style=for-the-badge&logo=ansible&logoColor=white
 [Ansible-url]: https://ansible.com/
-[Kubernetes]: https://img.shields.io/badge/kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white
-[K8s-url]: https://ansible.com/
+[K3s]: https://img.shields.io/badge/K3s-FFC61C?style=for-the-badge&logo=k3s&logoColor=white
+[K3s-url]: https://ansible.com/
