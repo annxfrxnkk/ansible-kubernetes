@@ -7,7 +7,7 @@
   kubernetes.core.helm_repository:
     name: "{{ item.namespace }}"
     repo_url: "{{ item.repo_url }}"
-  loop: "{{ application | dict2items }}"
+  loop: "{{ applications | dict2items }}"
     
 - name: Deploy Helm chart for
   kubernetes.core.helm:
@@ -16,7 +16,7 @@
     release_namespace: "{{ item.namespace }}"
     create_namespace: true
     values: "{{ lookup('template', '../vars/{{ app }}.yaml') | from_yaml }}"
-   loop: "{{ application | dict2items }}"
+   loop: "{{ applications | dict2items }}"
 
   
   
