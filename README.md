@@ -91,8 +91,8 @@
 
 | vars | description | 
 | --- | --- |
-| `longhorn` | installs vm's on any hypervisor target | 
-| `glusterFS` | remove vm's on any hypervisor target | 
+| `longhorn` | installs longhorn as storage backend | 
+| `glusterFS` | installs glusterFS as storage backend | 
 
 <h3> applications </h3>
 
