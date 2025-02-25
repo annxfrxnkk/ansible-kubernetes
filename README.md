@@ -110,7 +110,5 @@
 [Helm-url]: https://helm.sh/
 [Ansible]: https://img.shields.io/badge/ansible-000000?style=for-the-badge&logo=ansible&logoColor=white
 [Ansible-url]: https://ansible.com/
-[Podman]: https://img.shields.io/badge/podman-892CA0?style=for-the-badge&logo=podman&logoColor=white
-[Podman-url]: https://ansible.com/
 [Kubernetes]: https://img.shields.io/badge/kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white
 [K8s-url]: https://ansible.com/
