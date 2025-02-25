@@ -1,5 +1,5 @@
 ---
- name: Include all .json and .jsn files in vars/all and all nested directories (2.3)
+- name: Include all .json and .jsn files in vars/all and all nested directories (2.3)
   ansible.builtin.include_vars:
     dir: vars/
     extensions:
