@@ -11,3 +11,7 @@ applications:
     namespace: "nextcloud"
     chart_ref: "nextcloud/nextcloud"
     repo_url: "https://nextcloud.github.io/helm/"
+  - name: "wikijs"
+    namespace: "wikijs"
+    chart_ref: "wikijs/wikijs"
+    repo_url: "helm repo add requarks https://charts.js.wiki"

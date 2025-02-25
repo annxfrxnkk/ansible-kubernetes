@@ -1,7 +1,9 @@
 ---
-- name: Include application vars
-  include_vars:
-    file: helm-values.yaml
+ name: Include all .json and .jsn files in vars/all and all nested directories (2.3)
+  ansible.builtin.include_vars:
+    dir: vars/
+    extensions:
+      - 'yaml'
 
 - name: Add Helm repository for
   kubernetes.core.helm_repository:
@@ -16,7 +18,7 @@
     chart_ref: "{{ item.chart_ref }}"
     release_namespace: "{{ item.namespace }}"
     create_namespace: true
-    values: "{{ lookup('template', 'nextcloud-values.yaml') | from_yaml }}"
+    values: "{{ lookup('template', '{{ app }}.yaml') | from_yaml }}"
   loop: "{{ applications }}"
   when: "item.name == {{ 'app' }}"
 
