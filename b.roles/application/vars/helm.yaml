@@ -1,6 +1,6 @@
 awx:
   - name: "awx"
-  - namespace: "awx-operator"
-  - chart_ref: "awx-operator/awx-operator"
-  - repo_url: "https://ansible-community.github.io/awx-operator-helm/"
+    namespace: "awx-operator"
+    chart_ref: "awx-operator/awx-operator"
+    repo_url: "https://ansible-community.github.io/awx-operator-helm/"
   
