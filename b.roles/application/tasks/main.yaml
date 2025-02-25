@@ -15,6 +15,7 @@
     name: "{{ item.release_name | default(item.chart_ref.split('/')[-1]) }}"
     chart_ref: "{{ item.chart_ref }}"
     release_namespace: "{{ item.namespace }}"
+    create_namespace: true
     #values_file: "{{ item.values_file }}"
   loop: "{{ applications }}"
   when: "item.name == {{ 'app' }}"
