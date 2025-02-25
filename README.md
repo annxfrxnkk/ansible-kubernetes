@@ -77,18 +77,6 @@
 | `network-policy` | standard for controlling flow of traffic | default: disabled |
 | `traefik` | for exposing services to outside of the cluster | default: disabled |
 
-
-<h3> applications </h3>
-
-| vars | description |
-| --- | --- |
-| `awx` | installs awx inside a k3s cluster |
-| `kubernetes-dashboard` | installs kubernetes-dashboard inside a k3s cluster |
-| `nextcloud` | installs nextcloud inside a k3s cluster |
-| `wikijs` | installs wikijs inside a k3s cluster |
-| `psql` | installs psql inside a k3s cluster |
-
-
 <h3> network </h3>
 
 | vars | description |
@@ -105,6 +93,16 @@
 | --- | --- |
 | `longhorn` | installs vm's on any hypervisor target | 
 | `glusterFS` | remove vm's on any hypervisor target | 
+
+<h3> applications </h3>
+
+| vars | description |
+| --- | --- |
+| `awx` | installs awx inside a k3s cluster |
+| `kubernetes-dashboard` | installs kubernetes-dashboard inside a k3s cluster |
+| `nextcloud` | installs nextcloud inside a k3s cluster |
+| `wikijs` | installs wikijs inside a k3s cluster |
+| `psql` | installs psql inside a k3s cluster |
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
