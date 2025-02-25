@@ -5,7 +5,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/system-integration.png" alt="Logo" width="80" height="80">
+    <img src="images/k3s-logo-large.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Ansible + K3s</h3>
