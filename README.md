@@ -8,7 +8,7 @@
     <img src="images/k3s-logo-large.png" alt="Logo" width="150" height="80">
   </a>
 
-  <h3 align="center">Ansible + K3s</h3>
+  <h3 align="center">AWX + K3s</h3>
 
   <p align="center">
     <br />
