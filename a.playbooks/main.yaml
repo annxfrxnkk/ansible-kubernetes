@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: Installing Components
-      ansible.builtin.import_role:
+      ansible.builtin.include_role:
         name: "{{ deploy_type }}"
       loop: "{{ applications }}"
       when: "item.name == {{ 'app' }}"
