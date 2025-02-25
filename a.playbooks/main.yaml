@@ -5,4 +5,5 @@
     - name: Installing Components
       ansible.builtin.import_role:
         name: "{{ deploy_type }}"
-        #tasks_from: "{{ application }}/main.yaml"
+      loop: "{{ applications }}"
+      when: "item.name == {{ 'app' }}"

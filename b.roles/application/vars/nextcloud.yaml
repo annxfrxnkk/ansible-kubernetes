@@ -1,3 +1,11 @@
 nextcloud:
   host: cloud.vivet.com
+  password: nextcloud
+  ingress:
+    enable: true
+    className: nginx
+    servicePort: 80
+    path: /
+    pathType: Prefix
+
 
