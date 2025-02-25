@@ -2,9 +2,7 @@
 - name: Include all .json and .jsn files in vars/all and all nested directories (2.3)
   ansible.builtin.include_vars:
     dir: vars/
-    extensions:
-      - 'yaml'
-
+   
 - name: Add Helm repository for
   kubernetes.core.helm_repository:
     name: "{{ item.namespace }}"
@@ -18,7 +16,7 @@
     chart_ref: "{{ item.chart_ref }}"
     release_namespace: "{{ item.namespace }}"
     create_namespace: true
-    values: "{{ lookup('template', '{{ app }}.yaml') | from_yaml }}"
+    values: "{{ lookup('template', '../vars/{{ app }}.yaml') | from_yaml }}"
   loop: "{{ applications }}"
   when: "item.name == {{ 'app' }}"
 
