@@ -1,11 +1,6 @@
-applications:
-  awx:
-    name: "awx"
-    namespace: "awx-operator"
-    chart_ref: "awx-operator/awx-operator"
-    repo_url: "https://ansible-community.github.io/awx-operator-helm/"
-  nextcloud:
-    name: "nextcloud"
-    namespace: "nextcloud"
-    chart_ref: "nextcloud/nextcloud"
-    repo_url: "https://ansible-community.github.io/awx-operator-helm/"
+awx:
+  name: "awx"
+  namespace: "awx-operator"
+  chart_ref: "awx-operator/awx-operator"
+  repo_url: "https://ansible-community.github.io/awx-operator-helm/"
+  
