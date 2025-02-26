@@ -23,9 +23,8 @@
       kubernetes.core.helm_repository:
         name: "{{ item.namespace }}"
         repo_url: "{{ item.repo_url }}"
-      loop: "{{ applications }}"
-      when: "item.name == {{ 'app' }}"
-      
+      loop: "{{ applications[app].items() }}"
+            
     - name: Deploy Helm chart for
       kubernetes.core.helm:
         name: "{{ item.release_name | default(item.chart_ref.split('/')[-1]) }}"
@@ -33,9 +32,8 @@
         release_namespace: "{{ item.namespace }}"
         create_namespace: true
         values: "{{ lookup('template', '../vars/{{ helm }}.yaml') | from_yaml }}"
-      loop: "{{ applications }}"
-      when: "item.name == {{ 'helm' }}"
-  when: deploy_type == "app"
+      loop: "{{ applications[app].items() }}"
+  when: deploy_type == "app" and item.name == 
   
   
   
