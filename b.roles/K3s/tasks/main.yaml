@@ -33,7 +33,7 @@
         create_namespace: true
         values: "{{ lookup('template', '../vars/{{ helm }}.yaml') | from_yaml }}"
       loop: "{{ applications[app].items() }}"
-  when: deploy_type == "app" and item.name == 
+  when: deploy_type == "app" 
   
   
   
