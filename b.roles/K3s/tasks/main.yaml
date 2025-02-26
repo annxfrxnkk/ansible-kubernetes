@@ -14,7 +14,7 @@
     - name: Log k3s installation output
       debug:
         msg: "{{ k3s_install_output.stdout }}"
-  when: deploy_type[k3s] == "true"
+  when: deploy_type.k3s == "true"
 
 ### ### ### K3s Applications ### ### ###
 - name: K3s Applications
@@ -23,8 +23,8 @@
       kubernetes.core.helm_repository:
         name: "{{ item.namespace }}"
         repo_url: "{{ item.repo_url }}"
-      loop: "{{ helm }}"
-            
+      loop: "{{ helm | selectattr('name', '==', '{{ app }}') }}"
+                
     - name: Deploy Helm chart for
       kubernetes.core.helm:
         name: "{{ item.release_name | default(item.chart_ref.split('/')[-1]) }}"
@@ -32,7 +32,7 @@
         release_namespace: "{{ item.namespace }}"
         create_namespace: true
         values: "{{ lookup('template', '../vars/{{ item.name }}.yaml') | from_yaml }}"
-      loop: "{{ helm }}"
-  when: deploy_type[app] == "true"  
+      loop: "{{ helm | selectattr('name', '==', '{{ app }}') }}"
+  when: deploy_type.app == "true"  
   
   
