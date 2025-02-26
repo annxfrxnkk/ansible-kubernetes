@@ -24,7 +24,7 @@
         name: "{{ item }}"
         repo_url: "{{ item }}"
       loop: "{{ helm }}"
-      when: "item.name == {{ app }}"
+      when: "item.name == {{ 'app' }}"
 
     - name: Deploy Helm chart for
       kubernetes.core.helm:
@@ -34,7 +34,7 @@
         create_namespace: true
         values: "{{ lookup('template', '../vars/{{ helm }}.yaml') | from_yaml }}"
       loop: "{{ helm }}"
-      when: "item.name == {{ app }}"
+      when: "item.name == {{ 'app' }}"
   when: deploy_type == "app" 
   
   
