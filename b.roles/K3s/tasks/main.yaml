@@ -21,8 +21,8 @@
   block:
     - name: Add Helm repository for
       kubernetes.core.helm_repository:
-        name: "{{ item }}"
-        repo_url: "{{ item }}"
+        name: "{{ item.namespace }}"
+        repo_url: "{{ item.repo_url }}"
       loop: "{{ helm }}"
       when: "item.name == {{ 'app' }}"
 
