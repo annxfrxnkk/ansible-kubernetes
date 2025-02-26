@@ -23,8 +23,8 @@
       kubernetes.core.helm_repository:
         name: "{{ item.namespace }}"
         repo_url: "{{ item.repo_url }}"
-      loop: "{{ helm | selectattr('name', '==', '{{ app }}') }}"
-                
+      loop: "{{ helm | selectattr('name', 'in', app) }}"
+
     - name: Deploy Helm chart for
       kubernetes.core.helm:
         name: "{{ item.release_name | default(item.chart_ref.split('/')[-1]) }}"
