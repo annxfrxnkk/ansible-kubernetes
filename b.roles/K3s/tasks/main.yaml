@@ -21,9 +21,10 @@
   block:
     - name: Add Helm repository for
       kubernetes.core.helm_repository:
-        name: "{{ item.namespace }}"
-        repo_url: "{{ item.repo_url }}"
-      loop: "{{ helm[app] | dict2items }}"
+        name: "{{ item }}"
+        repo_url: "{{ item }}"
+      loop: "{{ helm }}"
+      when: "item.name == {{ app }}"
 
     - name: Deploy Helm chart for
       kubernetes.core.helm:
@@ -32,7 +33,8 @@
         release_namespace: "{{ item.namespace }}"
         create_namespace: true
         values: "{{ lookup('template', '../vars/{{ helm }}.yaml') | from_yaml }}"
-      loop: "{{ helm[app] | dict2items }}"
+      loop: "{{ helm }}"
+      when: "item.name == {{ app }}"
   when: deploy_type == "app" 
   
   
