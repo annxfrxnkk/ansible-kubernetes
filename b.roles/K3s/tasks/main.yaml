@@ -31,8 +31,8 @@
         chart_ref: "{{ item.chart_ref }}"
         release_namespace: "{{ item.namespace }}"
         create_namespace: true
-        values: "{{ lookup('template', '../vars/{{ item.name }}.yaml') | from_yaml }}"
-      loop: "{{ helm | selectattr('name', '==', '{{ app }}') }}"
+        values: "{{ lookup('template', '../vars/{{ app }}.yaml') | from_yaml }}"
+      loop: "{{ helm | selectattr('name', 'in', app) }}"
   when: deploy_type.app == "true"  
   
   
