@@ -14,7 +14,7 @@
     - name: Log k3s installation output
       debug:
         msg: "{{ k3s_install_output.stdout }}"
-  when: deploy_type.kws == true
+  when: deploy_type.k3s == true
 
 ### ### ### K3s Applications ### ### ###
 - name: K3s Applications
