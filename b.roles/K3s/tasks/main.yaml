@@ -1,8 +1,8 @@
 ---
 ### ### ### Vars ### ### ###
-- name: Include all .json and .jsn files in vars/all and all nested directories (2.3)
+- name: Include vars
   ansible.builtin.include_vars:
-    dir: vars/
+    dir: vars
 
 ### ### ### K3s Cluster ### ### ###
 - name: K3s Cluster
