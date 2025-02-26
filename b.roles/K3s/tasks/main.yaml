@@ -14,7 +14,7 @@
     - name: Log k3s installation output
       debug:
         msg: "{{ k3s_install_output.stdout }}"
-  when: deploy_type[0] == "true"
+  when: deploy_type[k3s] == "true"
 
 ### ### ### K3s Applications ### ### ###
 - name: K3s Applications
@@ -33,6 +33,6 @@
         create_namespace: true
         values: "{{ lookup('template', '../vars/{{ item.name }}.yaml') | from_yaml }}"
       loop: "{{ helm }}"
-  when: deploy_type[1] == "true"  
+  when: deploy_type[app] == "true"  
   
   
