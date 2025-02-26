@@ -1,4 +1,5 @@
 helm:
+  ### ### ### applications ### ### ###
   - name: "awx"
     namespace: "awx-operator"
     chart_ref: "awx-operator/awx-operator"
@@ -19,3 +20,39 @@ helm:
     namespace: "psql"
     chart_ref: "psql/psql"
     repo_url: "helm repo add bitnami https://charts.bitnami.com/bitnami"
+
+  ### ### ### network ### ### ###
+  - name: "cilium"
+    namespace: "cilium"
+    chart_ref: "cilium/cilium"
+    repo_url: "helm repo add bitnami https://charts.bitnami.com/bitnami"
+  - name: "metallb"
+    namespace: "metallb"
+    chart_ref: "metallb/metallb"
+    repo_url: "helm repo add bitnami https://charts.bitnami.com/bitnami"
+  - name: "nginx"
+    namespace: "nginx"
+    chart_ref: "nginx/nginx"
+    repo_url: "helm repo add bitnami https://charts.bitnami.com/bitnami"
+  - name: "haproxy"
+    namespace: "haproxy"
+    chart_ref: "haproxy/haproxy"
+    repo_url: "helm repo add bitnami https://charts.bitnami.com/bitnami"
+  - name: "calico"
+    namespace: "calico"
+    chart_ref: "calico/calico"
+    repo_url: "helm repo add bitnami https://charts.bitnami.com/bitnami"
+
+  ### ### ### storage ### ### ###
+  - name: "longhorn"
+    namespace: "longhorn"
+    chart_ref: "longhorn/longhorn"
+    repo_url: "helm repo add bitnami https://charts.bitnami.com/bitnami"
+
+
+
+
+
+
+    
+
