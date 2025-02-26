@@ -1,4 +1,4 @@
-applications:
+helm:
   awx:
     name: "awx"
     namespace: "awx-operator"
