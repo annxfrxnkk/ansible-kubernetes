@@ -22,6 +22,7 @@
       ansible.builtin.copy:
         src: /etc/rancher/k3s/k3s.yaml
         dest: $HOME/.kube/config
+      remote_src: true
   when: "'k3s' in deploy_type"
   
  ## ### ### ### ### ### ### ### ### ###
