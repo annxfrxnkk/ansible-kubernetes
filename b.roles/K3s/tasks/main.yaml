@@ -19,7 +19,7 @@
       register: k3s_install_output
 
     - name: copy k3s config file to user profile
-      ansible.buitin.copy:
+      ansible.builtin.copy:
         src: /etc/rancher/k3s/k3s.yaml
         dest: $HOME/.kube/config
   when: deploy_type['k3s'] is defined
