@@ -49,7 +49,7 @@
         chart_ref: "{{ item.chart_ref }}"
         release_namespace: "{{ item.namespace }}"
         create_namespace: true
-        values: "{{ lookup('template', '../vars/{{ item.namespace }}.yaml') | from_yaml }}"
+        values: "{{ lookup('template', '../vars/{{ item.namespace }}.yaml') | from_yaml | default({}) }}"
       loop: "{{ helm | selectattr('name', 'in', app) }}"
   when: "'app' in deploy_type"  
   
