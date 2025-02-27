@@ -1,0 +1,24 @@
+---
+
+ ## ### ### ### ### ### ### ### ### ###
+### ### ### K3s Applications ### ### ###
+ ## ### ### ### ### ### ### ### ### ###
+ 
+- name: K3s Applications
+  block:
+    - name: Add Helm repository for
+      kubernetes.core.helm_repository:
+        name: "{{ item.repo }}"
+        repo_url: "{{ item.repo_url }}"
+      loop: "{{ helm | selectattr('name', 'in', app) }}"
+
+    - name: Deploy Helm chart for
+      kubernetes.core.helm:
+        name: "{{ item.repo }}"
+        chart_ref: "{{ item.chart_ref }}"
+        release_namespace: "{{ item.namespace }}"
+        create_namespace: true
+        values: "{{ lookup('template', '../vars/{{ item.namespace }}.yaml') | from_yaml }}"
+      loop: "{{ helm | selectattr('name', 'in', app) }}"
+  when: "'app' in deploy_type"  
+  

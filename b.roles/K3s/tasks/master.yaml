@@ -1,0 +1,6 @@
+---
+- name: Download and install k3s master node(s)
+  ansible.builtin.shell: 
+    - "curl -sfL https://get.k3s.io | sh -s - server {{ ' '.join(master) }}"
+
+    
