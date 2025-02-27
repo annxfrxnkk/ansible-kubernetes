@@ -39,13 +39,13 @@
   block:
     - name: Add Helm repository for
       kubernetes.core.helm_repository:
-        name: "{{ item.namespace }}"
+        name: "{{ item.repo }}"
         repo_url: "{{ item.repo_url }}"
       loop: "{{ helm | selectattr('name', 'in', app) }}"
 
     - name: Deploy Helm chart for
       kubernetes.core.helm:
-        name: "{{ item.chart_ref }}"
+        name: "{{ item.repo }}"
         chart_ref: "{{ item.chart_ref }}"
         release_namespace: "{{ item.namespace }}"
         create_namespace: true
