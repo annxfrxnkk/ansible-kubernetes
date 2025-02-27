@@ -8,7 +8,7 @@
 - name: K3s Cluster
   block:
     - name: Download and install k3s
-      shell: "curl -sfL https://get.k3s.io | sh -s - server {{ ' '.join(k3s_options) }}"
+      shell: "curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE=644 sh -s - server {{ ' '.join(k3s_options) }}"
       register: k3s_install_output
 
     - name: Log k3s installation output
