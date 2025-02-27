@@ -1,22 +1,33 @@
 ---
+
+ ## ### ### ### ### ### ###
 ### ### ### Vars ### ### ###
+ ## ### ### ### ### ### ###
+ 
 - name: Include vars
   ansible.builtin.include_vars:
     dir: vars
 
+ ## ### ### ### ### ### ### ### ##
 ### ### ### K3s Cluster ### ### ###
+ ## ### ### ### ### ### ### ### ##
+ 
 - name: K3s Cluster
   block:
     - name: Download and install k3s
-      shell: "curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE=644 sh -s - server {{ ' '.join(k3s_options) }}"
+      ansible.builtin.shell: "curl -sfL https://get.k3s.io | sh -s - server {{ ' '.join(k3s_options) }}"
       register: k3s_install_output
 
-    - name: Log k3s installation output
-      debug:
-        msg: "{{ k3s_install_output.stdout }}"
-  when: deploy_type.k3s == "true"
+    - name: copy k3s config file to user profile
+      ansible.buitin.copy:
+        src: /etc/rancher/k3s/k3s.yaml
+        dest: $HOME/.kube/config
+  when: deploy_type['k3s'] == "true"
 
+ ## ### ### ### ### ### ### ### ### ###
 ### ### ### K3s Applications ### ### ###
+ ## ### ### ### ### ### ### ### ### ###
+ 
 - name: K3s Applications
   block:
     - name: Add Helm repository for
@@ -27,13 +38,12 @@
 
     - name: Deploy Helm chart for
       kubernetes.core.helm:
-        name: "{{ item.release_name | default(item.chart_ref.split('/')[-1]) }}"
+        name: "{{ item.chart_ref }}"
         chart_ref: "{{ item.chart_ref }}"
         release_namespace: "{{ item.namespace }}"
         create_namespace: true
-        api_key: "K107e25f9ff25441d996b844ccdf9bb2979305adf2acbc8afefe18b167142a082e7::server:5cec380d13014c2ffaddf3c756e1660f"
         values: "{{ lookup('template', '../vars/{{ item.namespace }}.yaml') | from_yaml }}"
       loop: "{{ helm | selectattr('name', 'in', app) }}"
-  when: deploy_type.app == "true"  
+  when: deploy_type['app'] == "true"  
   
   
