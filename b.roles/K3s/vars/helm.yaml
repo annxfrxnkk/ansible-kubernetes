@@ -1,5 +1,9 @@
 helm:
-  ### ### ### applications ### ### ###
+
+ ## ### ### ### ### ### ### ### ### ###
+### ### ### K3s Applications ### ### ###
+ ## ### ### ### ### ### ### ### ### ###
+
   - name: "awx"
     namespace: "awx-operator"
     chart_ref: "awx-operator/awx-operator"
@@ -20,8 +24,15 @@ helm:
     namespace: "psql"
     chart_ref: "psql/psql"
     repo_url: "https://charts.bitnami.com/bitnami"
+  - name: "rancher"
+    namespace: "rancher"
+    chart_ref: "rancher/rancher"
+    repo_url: "https://charts.jetstack.io"
 
-  ### ### ### network ### ### ###
+ ## ### ### ### ### ### ### ### ##
+### ### ### K3s Network ### ### ###
+ ## ### ### ### ### ### ### ### ##
+
   - name: "cilium"
     namespace: "cilium"
     chart_ref: "cilium/cilium"
@@ -43,7 +54,10 @@ helm:
     chart_ref: "calico/calico"
     repo_url: "https://docs.tigera.io/calico/charts"
 
-  ### ### ### storage ### ### ###
+ ## ### ### ### ### ### ### ### ##
+### ### ### K3s Storage ### ### ###
+ ## ### ### ### ### ### ### ### ##
+
   - name: "longhorn"
     namespace: "longhorn"
     chart_ref: "longhorn/longhorn"
