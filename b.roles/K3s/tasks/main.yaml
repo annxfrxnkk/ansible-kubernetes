@@ -31,6 +31,7 @@
         chart_ref: "{{ item.chart_ref }}"
         release_namespace: "{{ item.namespace }}"
         create_namespace: true
+        api_key: "K107e25f9ff25441d996b844ccdf9bb2979305adf2acbc8afefe18b167142a082e7::server:5cec380d13014c2ffaddf3c756e1660f"
         values: "{{ lookup('template', '../vars/{{ item.namespace }}.yaml') | from_yaml }}"
       loop: "{{ helm | selectattr('name', 'in', app) }}"
   when: deploy_type.app == "true"  
