@@ -22,7 +22,7 @@
       ansible.builtin.copy:
         src: /etc/rancher/k3s/k3s.yaml
         dest: $HOME/.kube/config
-  when: deploy_type['k3s'] is defined
+  when: deploy_type[k3s] is defined
 
  ## ### ### ### ### ### ### ### ### ###
 ### ### ### K3s Applications ### ### ###
@@ -44,6 +44,6 @@
         create_namespace: true
         values: "{{ lookup('template', '../vars/{{ item.namespace }}.yaml') | from_yaml }}"
       loop: "{{ helm | selectattr('name', 'in', app) }}"
-  when: deploy_type['app'] is defined 
+  when: deploy_type[app] is defined 
   
   
