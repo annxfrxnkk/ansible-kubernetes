@@ -1,0 +1,4 @@
+---
+server: https://<master-ip>:6443
+token: <token>
+write-kubeconfig-mode: 0644

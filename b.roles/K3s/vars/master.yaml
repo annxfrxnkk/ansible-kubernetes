@@ -1,0 +1,9 @@
+---
+flannel-backend: "none"
+cluster-init: "{{ init }}"
+disable:
+  - servicelb
+  - traefik
+  - network-policy
+  - kube-proxy
+
