@@ -3,8 +3,6 @@
   ansible.builtin.shell:  "curl -sLS https://get.k3sup.dev | sh"
 
 - name: Create master node(s)
-  ansible.builtin.shell: |
-    k3sup install 
-    --local
+  ansible.builtin.shell: "k3sup install --local"
     
         
