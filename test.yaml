@@ -2,11 +2,14 @@
   hosts: localhost
   vars:
     host:
-      - hostname: "value1"
-      - hostname: "value2"
+      - "value1"
+      - "value2"
+      - "value3"
+      - "value4"
   tasks:
 
     - name: generate json file from vars
       copy:
-        content: "{{ host | to_nice_json }}"
-        dest: $HOME/json.json
+        content: "{{ [{'hostname': item} , item in host] | to_nice_json }}"
+        dest: json.json
+      loop: "{{ host }}"
