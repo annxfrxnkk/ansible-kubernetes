@@ -2,6 +2,6 @@
 - name: Generate JSON file
   copy:
     content: |
-      {{ [ { "hostname": item } for item in hostnames ] | to_json }}
+      {{ [ { "hostname": item } , item in hostnames ] | to_json }}
     dest: /path/to/output/nodes.json
         
