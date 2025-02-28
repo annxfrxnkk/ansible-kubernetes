@@ -1,6 +1,7 @@
 ---
 - name: Generate JSON file
   copy:
-    content: "{{ hostnames | map('rekey', {'new_key': 'hostname'}) | list | to_json }}"
+    content: |
+      {{ [ { "hostname": item } for item in hostnames ] | to_json }}
     dest: /path/to/output/nodes.json
         
