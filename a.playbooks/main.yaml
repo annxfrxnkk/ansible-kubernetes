@@ -6,6 +6,6 @@
     - name: Installing Components
       ansible.builtin.include_role:
         name: "K3s"
-        tasks_from: "master"
+        tasks_from: "cluster"
 
       
