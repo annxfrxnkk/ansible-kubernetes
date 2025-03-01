@@ -4,7 +4,6 @@
   tasks:
     - name: K3s Master
       block:
-      delegate_to: "{{ master }}"
         - name: Installing K3s on master node(s)
           shell: "curl -sfL https://get.k3s.io | sh -s - server --disable traefik --cluster-init"
 
@@ -19,6 +18,8 @@
         - name: Set master token as Ansible fact
           set_fact:
             k3s_master_token: "{{ master_token.stdout }}"
+      delegate_to: "{{ master }}"
+
 
     - name: Install K3s on worker cluster node
       delegate_to: "{{ worker }}"
