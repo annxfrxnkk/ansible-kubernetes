@@ -1,9 +1,23 @@
 ---
 - name: Setup K3s Cluster on Master Nodes
-  hosts: "{{ master }}"
+  hosts: all
   become: yes
   tasks:
-    - name: Install K3s on master
-      shell: |
-        curl -sfL https://get.k3s.io | sh -
+    - name: Install K3s on master cluster node
+      delegate_to: "{{ master }}"
+      shell: "curl -sfL https://get.k3s.io | sh -s - server --disable traefik --cluster-init"
+
+    - name: Extract master token
+      command: cat /var/lib/rancher/k3s/server/node-token
+      register: master_token
+
+    - name: Set master token as Ansible fact
+      set_fact:
+        k3s_master_token: "{{ master_token.stdout }}"
+
+    - name: Install K3s on worker cluster node
+      delegate_to: "{{ worker }}"
+      shell: "curl -sfL https://get.k3s.io | sh -s - agent --token {{ k3s_master_token }} --server https://{{ master }}:6443"
+
+
 
