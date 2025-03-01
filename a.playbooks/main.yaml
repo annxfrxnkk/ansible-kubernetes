@@ -6,6 +6,10 @@
       delegate_to: "{{ master }}"
       shell: "curl -sfL https://get.k3s.io | sh -s - server --disable traefik --cluster-init"
 
+    - name: Wait until the file /tmp/foo is present before continuing
+      ansible.builtin.wait_for:
+        path: /var/lib/rancher/k3s/server/node-token
+
     - name: Extract master token
       command: cat /var/lib/rancher/k3s/server/node-token
       register: master_token
