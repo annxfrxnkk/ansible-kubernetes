@@ -1,0 +1,11 @@
+---
+- name: K3s Cluster Installation
+  hosts: all
+  tasks:
+    
+    - name: Installing Components
+      ansible.builtin.include_role:
+        name: "K3s"
+        tasks_from: "cluster"
+
+      
