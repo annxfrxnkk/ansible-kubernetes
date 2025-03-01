@@ -19,14 +19,14 @@
           set_fact:
             k3s_master_token: "{{ master_token.stdout }}"
       delegate_to: "{{ master }}"
-      loop: "{{ master }}"
-      when: "'master' is defined"
+      when: "'item' in master"
+      with_items: "{{ master }}"
 
 
     - name: Install K3s on worker cluster node
       delegate_to: "{{ worker }}"
       shell: "curl -sfL https://get.k3s.io | sh -s - agent --token {{ k3s_master_token }} --server https://{{ master }}:6443"
-      when: "'worker' is defined"
+      when: "'item' in worker"
 
 
 
