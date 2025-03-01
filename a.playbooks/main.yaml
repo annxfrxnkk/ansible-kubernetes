@@ -13,7 +13,7 @@
 
         - name: Extract master token
           command: cat /var/lib/rancher/k3s/server/node-token
-            register: master_token
+          register: master_token
 
         - name: Set master token as Ansible fact
           set_fact:
