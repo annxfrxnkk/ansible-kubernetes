@@ -1,7 +1,6 @@
 ---
 - name: Setup K3s Cluster on Master Nodes
   hosts: localhost
-  become: yes
   tasks:
     - name: Install K3s on master cluster node
       delegate_to: "{{ master }}"
