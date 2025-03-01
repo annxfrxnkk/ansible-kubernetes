@@ -1,31 +1,9 @@
 ---
-- name: Install K3s on Master Nodes
-  hosts: all
+- name: Setup K3s Cluster on Master Nodes
+  hosts: "{{ master }}"
   become: yes
   tasks:
-    - name: Install K3s on Master Node
+    - name: Install K3s on master
       shell: |
-        echo "Installing K3s on {{ inventory_hostname }}"
         curl -sfL https://get.k3s.io | sh -
-      when: inventory_hostname in master_hosts
-
-    - name: Save K3s master node token for workers
-      command: cat /etc/rancher/k3s/k3s.yaml
-      register: k3s_master_token
-      when: inventory_hostname in master_hosts
-
-    - name: Set K3s master token for worker nodes
-      set_fact:
-        k3s_token: "{{ k3s_master_token.stdout }}"
-      when: inventory_hostname in master_hosts
-
-- name: Install K3s on Worker Nodes
-  hosts: all
-  become: yes
-  tasks:
-    - name: Install K3s on Worker Node
-      shell: |
-        echo "Installing K3s on {{ inventory_hostname }}"
-        curl -sfL https://get.k3s.io | K3S_URL=https://{{ hostvars[master_hosts[0]].ansible_ssh_host }}:6443 K3S_TOKEN={{ k3s_token }} sh -
-      when: inventory_hostname in worker_hosts
 
