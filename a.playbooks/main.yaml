@@ -19,7 +19,7 @@
       block:
         - name: Setup Cluster Node
           shell: |
-            curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--cluster-init' if cluster_init else '' }}
+            curl -sfL https://get.k3s.io | sh -s - server --disable traefik --cluster-init
           
         - name: Fetch the K3s token from the first master node
           command: cat /var/lib/rancher/k3s/server/node-token
