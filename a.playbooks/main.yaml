@@ -1,12 +1,28 @@
----
-- name: Install K3s on new worker nodes
-  hosts: masters
-  become: yes
+- name: Add master and new workers to the inventory
+  hosts: localhost
+  gather_facts: no
   tasks:
-    - name: Install K3s on worker node
-      shell: |
-        curl -sfL https://get.k3s.io | sh -
-      when: install_k3s | bool  # Only install K3s on nodes where install_k3s is true
+    - name: Add new master node to the masters group
+      add_host:
+        name: "{{ item.hostname }}"
+        groups: masters
+        ansible_host: "{{ item.ip }}"
+        ansible_ssh_user: "{{ item.ssh_user }}"
+      loop:
+        - { hostname: "master1", ip: "192.168.1.21", ssh_user: "ubuntu" }
+        - { hostname: "master2", ip: "192.168.1.22", ssh_user: "ubuntu" }
+        - { hostname: "master3", ip: "192.168.1.23", ssh_user: "ubuntu" }
 
+    
+    - name: Add new worker nodes to the workers group
+      add_host:
+        name: "{{ item.hostname }}"
+        groups: workers
+        ansible_host: "{{ item.ip }}"
+        ansible_ssh_user: "{{ item.ssh_user }}"
+      loop:
+        - { hostname: "worker1", ip: "192.168.1.21", ssh_user: "ubuntu" }
+        - { hostname: "worker2", ip: "192.168.1.22", ssh_user: "ubuntu" }
+        - { hostname: "worker3", ip: "192.168.1.23", ssh_user: "ubuntu" }
 
 
