@@ -4,7 +4,6 @@
   tasks:
     - name: Add new master node to the masters group
       add_host:
-        name: "{{ item.hostname }}"
         groupname: masters
         ansible_host: "{{ item.ip }}"
         ansible_user: "{{ item.ssh_user }}"
