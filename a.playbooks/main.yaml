@@ -11,29 +11,17 @@
         k3s_install: "{{ item.k3s_install }}"
         cluster_init: "{{ item.cluster_init }}"
         join_cluster: "{{ item.join_cluster | default('') }}"
+        k3s_token: "{{ item.k3s_token }}"
       loop:
         - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", k3s_install: true, cluster_init: true }
-        - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192" }
+        - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192", k3s_token: "token" }
 
-    - name: Setup Cluster Node
-      shell: |
-        curl -sfL https://get.k3s.io | sh -s - server --disable traefik --cluster-init
-      delegate_to: master1
-          
-    - name: Fetch the K3s token from the first master node
-      command: cat /var/lib/rancher/k3s/server/node-token
-      register: k3s_token
-      become: yes
-      when: k3s_install.rc == 0  # Only fetch the token if K3s installation was successful
-      delegate_to: master1
-        
     - name: Install K3s master nodes
       block:
         - name: Join Nodes to Cluster
           shell: |
             curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--token ' + k3s_token if k3s_token else '' }} {{ '--server https://{{ join_cluster }}:6443' if join_cluster else '' }} {{ '--cluster-init' if cluster_init else '' }}
       when: k3s_install | bool
-      delegate_to: masters      
 
 
     
