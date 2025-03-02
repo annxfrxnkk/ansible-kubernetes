@@ -17,9 +17,6 @@
         - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192", k3s_token: "token"}
         - { hostname: "master3", ip: "192.168.122.74", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192", k3s_token: "token"}
 
-
-    - name: Install K3s 
-
     - name: Install K3s master nodes
       block:
         - name: Join Nodes to Cluster
