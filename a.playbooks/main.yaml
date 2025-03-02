@@ -22,7 +22,7 @@
   gather_facts: yes
   tasks:
     - name: Install K3s on the first master node
-      when: cluster_init | bool
+      when: cluster_init == "true"
       shell: |
         curl -sfL https://get.k3s.io | sh -s - server --disable traefik --token {{ k3s_token }}
 
