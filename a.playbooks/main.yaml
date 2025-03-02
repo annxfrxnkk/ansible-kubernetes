@@ -9,7 +9,7 @@
         ansible_host: "{{ item.ip }}"
         ansible_user: "{{ item.ssh_user }}"
         k3s_install: "{{ item.k3s_install }}"
-        cluster-init: "{{ item.cluster-init }}"
+        cluster-init: "{{ item.cluster_init }}"
       loop: "{{ masters }}"
         # - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", k3s_install: "true" }
         # - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: "false" }
