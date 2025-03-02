@@ -1,8 +1,9 @@
 - name: Add master and new workers to the inventory
-  hosts: localhost
+  hosts: all
   gather_facts: no
   tasks:
     - name: Add new master node to the masters group
+      delegate_to_hosts: localhost
       add_host:
         groupname: masters
         name: "{{ item.hostname }}"
@@ -11,19 +12,31 @@
         k3s_install: "{{ item.k3s_install }}"
         cluster_init: "{{ item.cluster_init }}"
         join_cluster: "{{ item.join_cluster | default('') }}"
-        token_cluster: "{{ lookup('pipe', 'cat /var/lib/rancher/k3s/server/node-token') if item.cluster_init else '' }}"  # Fetch token from the main master
       loop:
         - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", k3s_install: true, cluster_init: true }
         - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192" }
-        
-- name: Install Masters
-  hosts: masters
-  tasks:
-    - name: Install K3s master nodes
-      shell: |
-        curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--token ' + token_cluster if token_cluster else '' }} {{ '--server https://{{ join_cluster }}:6443' if join_cluster else '' }} {{ '--cluster-init' if cluster_init else '' }}
+
+    - name: Install main cluster initializator
+      delegate_to: master1
+      block:
+        - name: Setup Cluster Node
+          shell: |
+            curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--cluster-init' if cluster_init else '' }}
+          
+        - name: Fetch the K3s token from the first master node
+          command: cat /var/lib/rancher/k3s/server/node-token
+          register: k3s_token
+          become: yes
+          when: k3s_install.rc == 0  # Only fetch the token if K3s installation was successful
       when: k3s_install | bool
-      become: yes
+        
+    - name: Install K3s master nodes
+      delegate_to_hosts: masters
+        block:
+          - name: Join Nodes to Cluster
+            shell: |
+              curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--token ' + k3s_token if k3s_token else '' }} {{ '--server https://{{ join_cluster }}:6443' if join_cluster else '' }} {{ '--cluster-init' if cluster_init else '' }}
+      when: k3s_install | bool
 
 
     
