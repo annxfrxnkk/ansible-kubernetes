@@ -1,3 +1,4 @@
+---
 - name: Add master and new workers to the inventory
   hosts: localhost
   gather_facts: no
@@ -13,15 +14,47 @@
         join_cluster: "{{ item.join_cluster | default('') }}"
         k3s_token: "{{ item.k3s_token }}"
       loop:
-        - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", k3s_install: true, cluster_init: true, k3s_token: "token"}
-        - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192", k3s_token: "token"}
-        - { hostname: "master3", ip: "192.168.122.74", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192", k3s_token: "token"}
+        - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", k3s_install: true, cluster_init: true, k3s_token: "token" }
+        - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192", k3s_token: "token" }
+        - { hostname: "master3", ip: "192.168.122.74", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192", k3s_token: "token" }
 
-    - name: Join Nodes to Cluster
+- name: Install K3s on master and worker nodes
+  hosts: masters
+  gather_facts: yes
+  tasks:
+    - name: Install K3s on the first master node
+      when: cluster_init == true
       shell: |
-        curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--token {{ k3s_token }}' if k3s_token else ''}} {{ '--server https://{{ join_cluster }}:6443' if join_cluster else '' }} {{ '--cluster-init' if cluster_init else '' }}
-      when: k3s_install | bool
-      delegate_to: masters
+        curl -sfL https://get.k3s.io | sh -
+        export K3S_TOKEN={{ k3s_token }}
+        export K3S_URL=https://{{ ansible_host }}:6443
+        echo "K3S installed on master1"
+      register: k3s_master
+      ignore_errors: true
+
+    - name: Install K3s on worker nodes
+      when: cluster_init == false
+      shell: |
+        curl -sfL https://get.k3s.io | K3S_URL={{ join_cluster }}:6443 K3S_TOKEN={{ k3s_token }} sh -
+        echo "K3S installed on worker node {{ inventory_hostname }}"
+      register: k3s_worker
+
+    - name: Wait for K3s to become available
+      wait_for:
+        host: "{{ ansible_host }}"
+        port: 6443
+        state: started
+        delay: 10
+        timeout: 60
+
+
+
+# - name: Install Masters
+#   hosts: masters
+#   tasks:
+#     - name: Join Nodes to Cluster
+#       shell: |
+#         curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--token {{ k3s_token }}' if k3s_token else ''}} {{ '--server https://{{ join_cluster }}:6443' if join_cluster else '' }} {{ '--cluster-init' if cluster_init else '' }}
 
 
     
