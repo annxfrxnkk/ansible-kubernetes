@@ -17,6 +17,10 @@
           ]
         dest: json.json
 
+    - name: Install k3sup bin
+      shell: |
+        curl -sLS https://get.k3sup.dev | sh
+
     - name: Install k3sup server
       shell: |
         k3sup plan plan.json --user root --servers 1 --server-k3s-extra-args "--disable traefik" | sh
