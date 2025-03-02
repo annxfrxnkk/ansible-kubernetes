@@ -9,7 +9,6 @@
         name: "{{ item.hostname }}"
         ansible_host: "{{ item.ip }}"
         ansible_user: "{{ item.ssh_user }}"
-        k3s_install: "{{ item.k3s_install }}"
         cluster_init: "{{ item.cluster_init }}"
         join_cluster: "{{ item.join_cluster | default('') }}"
         k3s_token: "{{ item.k3s_token }}"
