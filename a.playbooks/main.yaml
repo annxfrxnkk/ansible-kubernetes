@@ -17,13 +17,8 @@
         - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192" }
         - { hostname: "master3", ip: "192.168.122.74", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192" }
 
-    # - name: Install the necessary collections using ansible-galaxy
-    #   shell: |
-    #     ansible-galaxy collection install community.crypto
-    #     ansible-galaxy collection install community.kubernetes
-
+    
     - name: Generate SSH key pair
       community.crypto.openssh_keypair:
         path: $HOME/.ssh/id_ed25519
         type: ed25519
-      delegate_to: masters
