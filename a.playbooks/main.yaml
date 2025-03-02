@@ -21,7 +21,7 @@
       block:
         - name: Join Nodes to Cluster
           shell: |
-            curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--token {{ k3s_token }} if k3s_token else '' }} {{ '--server https://{{ join_cluster }}:6443' if join_cluster else '' }} {{ '--cluster-init' if cluster_init else '' }}
+            curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--token {{ k3s_token }}' if k3s_token else ''}} {{ '--server https://{{ join_cluster }}:6443' if join_cluster else '' }} {{ '--cluster-init' if cluster_init else '' }}
       when: k3s_install | bool
 
 
