@@ -26,7 +26,6 @@
           register: k3s_token
           become: yes
           when: k3s_install.rc == 0  # Only fetch the token if K3s installation was successful
-      when: k3s_install | bool
       delegate_to: master1
         
     - name: Install K3s master nodes
