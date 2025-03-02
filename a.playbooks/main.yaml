@@ -27,7 +27,7 @@
           become: yes
           when: k3s_install.rc == 0  # Only fetch the token if K3s installation was successful
       when: k3s_install | bool
-      delegate_to_hosts: master1
+      delegate_to: master1
         
     - name: Install K3s master nodes
       block:
@@ -35,7 +35,7 @@
           shell: |
             curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--token ' + k3s_token if k3s_token else '' }} {{ '--server https://{{ join_cluster }}:6443' if join_cluster else '' }} {{ '--cluster-init' if cluster_init else '' }}
       when: k3s_install | bool
-      delegate_to_hosts: masters
+      delegate_to: masters      
 
 
     
