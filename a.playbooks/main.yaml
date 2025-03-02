@@ -8,7 +8,8 @@
         groupname: masters
         ansible_host: "{{ item.ip }}"
         ansible_user: "{{ item.ssh_user }}"
-        k3s_install: "{{ item.k3s_install }}" 
+        k3s_install: "{{ item.k3s_install }}"
+        cluster-init: "{{ item.cluster-init }}"
       loop: "{{ masters }}"
         # - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", k3s_install: "true" }
         # - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: "false" }
@@ -18,8 +19,8 @@
   hosts: masters
   tasks:
     - name: Install K3s master nodes
-      shell: "curl -sfL https://get.k3s.io | sh -"
-      when: k3s_install | bool
+      shell: "curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--cluster-init' if cluster_init else '' }}""
+      when: k3s_install and cluster-init | bool
 
     
     # - name: Add new worker nodes to the workers group
