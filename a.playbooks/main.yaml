@@ -12,7 +12,7 @@
         cluster_init: "{{ item.cluster_init }}"
       loop:
         - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", k3s_install: true, cluster_init: true }
-        - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: false, cluster_init: false }
+        - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false }
         
 - name: Install Masters
   hosts: masters
