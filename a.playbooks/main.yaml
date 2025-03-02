@@ -1,16 +1,12 @@
 ---
-- name: Setup K3s Cluster on Master Nodes
-  hosts: localhost
+- name: Install K3s on new worker nodes
+  hosts: masters
+  become: yes
   tasks:
-
-    - name: include master task
-      include_tasks: master.yaml
-      loop: "{{ master }}"
-
-    - name: Install K3s on worker cluster node
-      delegate_to: "{{ worker }}"
-      shell: "curl -sfL https://get.k3s.io | sh -s - agent --token {{ k3s_master_token }} --server https://{{ master }}:6443"
-      when: "'item' in worker"
+    - name: Install K3s on worker node
+      shell: |
+        curl -sfL https://get.k3s.io | sh -
+      when: install_k3s | bool  # Only install K3s on nodes where install_k3s is true
 
 
 

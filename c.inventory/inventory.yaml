@@ -1,0 +1,19 @@
+all:
+  children:
+    masters:
+      hosts:
+        master1:
+          ansible_host: 192.168.122.74
+          install_k3s: true
+        master2:
+          ansible_host: 192.168.122.192
+          install_k3s: false
+        master3:
+          ansible_host: 192.168.122.35
+          install_k3s: true
+        
+    workers:
+      hosts:
+        worker1:
+        worker2:
+
