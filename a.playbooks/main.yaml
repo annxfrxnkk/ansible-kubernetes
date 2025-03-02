@@ -10,16 +10,21 @@
         ansible_user: "{{ item.ssh_user }}"
         k3s_install: "{{ item.k3s_install }}"
         cluster_init: "{{ item.cluster_init }}"
+        join_cluster: "{{ item.join_cluster | default('') }}"
+        token_cluster: "{{ lookup('pipe', 'cat /var/lib/rancher/k3s/server/node-token') if item.cluster_init else '' }}"  # Fetch token from the main master
       loop:
         - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", k3s_install: true, cluster_init: true }
-        - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false }
+        - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192" }
         
 - name: Install Masters
   hosts: masters
   tasks:
     - name: Install K3s master nodes
-      shell: "curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--cluster-init' if cluster_init else '' }}"
+      shell: |
+        curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--token ' + token_cluster if token_cluster else '' }} {{ '--server https://{{ join_cluster }}:6443' if join_cluster else '' }} {{ '--cluster-init' if cluster_init else '' }}
       when: k3s_install | bool
+      become: yes
+
 
     
     # - name: Add new worker nodes to the workers group
