@@ -13,14 +13,18 @@
         join_cluster: "{{ item.join_cluster | default('') }}"
         k3s_token: "{{ item.k3s_token }}"
       loop:
-        - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", k3s_install: true, cluster_init: true }
-        - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192", k3s_token: "token" }
+        - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", k3s_install: true, cluster_init: true, k3s_token: "token"}
+        - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192", k3s_token: "token"}
+        - { hostname: "master3", ip: "192.168.122.74", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192", k3s_token: "token"}
+
+
+    - name: Install K3s 
 
     - name: Install K3s master nodes
       block:
         - name: Join Nodes to Cluster
           shell: |
-            curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--token ' + k3s_token if k3s_token else '' }} {{ '--server https://{{ join_cluster }}:6443' if join_cluster else '' }} {{ '--cluster-init' if cluster_init else '' }}
+            curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--token {{ k3s_token }} if k3s_token else '' }} {{ '--server https://{{ join_cluster }}:6443' if join_cluster else '' }} {{ '--cluster-init' if cluster_init else '' }}
       when: k3s_install | bool
 
 
