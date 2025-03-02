@@ -3,22 +3,31 @@
   hosts: localhost
   gather_facts: no
   tasks:
-    - name: Add new master node to the masters group
-      add_host:
-        groupname: masters
-        name: "{{ item.hostname }}"
-        ansible_host: "{{ item.ip }}"
-        ansible_user: "{{ item.ssh_user }}"
-        k3s_install: "{{ item.k3s_install }}"
-        cluster_init: "{{ item.cluster_init }}"
-        join_cluster: "{{ item.join_cluster | default('') }}"
-      loop:
-        - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", k3s_install: true, cluster_init: true }
-        - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192" }
-        - { hostname: "master3", ip: "192.168.122.74", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192" }
+    - name:
+      shell: |
+        k3sup --help
+      register: output
+
+    - name: output
+      debug:
+        msg: "{{ output.stdout }}"
+      
+    # - name: Add new master node to the masters group
+    #   add_host:
+    #     groupname: masters
+    #     name: "{{ item.hostname }}"
+    #     ansible_host: "{{ item.ip }}"
+    #     ansible_user: "{{ item.ssh_user }}"
+    #     k3s_install: "{{ item.k3s_install }}"
+    #     cluster_init: "{{ item.cluster_init }}"
+    #     join_cluster: "{{ item.join_cluster | default('') }}"
+    #   loop:
+    #     - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", k3s_install: true, cluster_init: true }
+    #     - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192" }
+    #     - { hostname: "master3", ip: "192.168.122.74", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192" }
 
     
-    - name: Generate SSH key pair
-      community.crypto.openssh_keypair:
-        path: $HOME/.ssh/id_ed25519
-        type: ed25519
+    # - name: Generate SSH key pair
+    #   community.crypto.openssh_keypair:
+    #     path: $HOME/.ssh/id_ed25519
+    #     type: ed25519
