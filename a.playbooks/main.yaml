@@ -19,7 +19,7 @@
   tasks:
     - name: Install K3s master nodes
       shell: "curl -sfL https://get.k3s.io | sh -s - server --disable traefik {{ '--cluster-init' if cluster_init else '' }}"
-      when: k3s_install and cluster_init | bool
+      when: k3s_install | bool
 
     
     # - name: Add new worker nodes to the workers group
