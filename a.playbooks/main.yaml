@@ -1,9 +1,8 @@
 - name: Add master and new workers to the inventory
-  hosts: all
+  hosts: localhost
   gather_facts: no
   tasks:
     - name: Add new master node to the masters group
-      delegate_to_hosts: localhost
       add_host:
         groupname: masters
         name: "{{ item.hostname }}"
