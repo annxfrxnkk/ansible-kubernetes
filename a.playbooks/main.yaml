@@ -15,17 +15,16 @@
         - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", k3s_install: true, cluster_init: true }
         - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", k3s_install: true, cluster_init: false, join_cluster: "192.168.122.192" }
 
-    - name: Install main cluster initializator
-      block:
-        - name: Setup Cluster Node
-          shell: |
-            curl -sfL https://get.k3s.io | sh -s - server --disable traefik --cluster-init
+    - name: Setup Cluster Node
+      shell: |
+        curl -sfL https://get.k3s.io | sh -s - server --disable traefik --cluster-init
+      delegate_to: master1
           
-        - name: Fetch the K3s token from the first master node
-          command: cat /var/lib/rancher/k3s/server/node-token
-          register: k3s_token
-          become: yes
-          when: k3s_install.rc == 0  # Only fetch the token if K3s installation was successful
+    - name: Fetch the K3s token from the first master node
+      command: cat /var/lib/rancher/k3s/server/node-token
+      register: k3s_token
+      become: yes
+      when: k3s_install.rc == 0  # Only fetch the token if K3s installation was successful
       delegate_to: master1
         
     - name: Install K3s master nodes
