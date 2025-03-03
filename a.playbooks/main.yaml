@@ -16,7 +16,10 @@
         - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", cluster_init: false } #join_cluster: "192.168.122.192" }
         - { hostname: "master3", ip: "192.168.122.74", ssh_user: "root", cluster_init: false } #join_cluster: "192.168.122.192" }
 
-    
+   
+- name: test
+  hosts: all
+  tasks:
     - name:
       shell: |
         curl -sLS https://get.k3sup.dev | sh
