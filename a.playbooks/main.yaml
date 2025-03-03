@@ -23,4 +23,4 @@
     - name:
       shell: |
         curl -sLS https://get.k3sup.dev | sh
-        k3sup install --local {{ '--cluster' if cluster_init == "true" else '' }}
+        k3sup install --local {{ '--cluster' if cluster_init else '' }}
