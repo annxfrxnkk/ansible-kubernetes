@@ -67,6 +67,8 @@
 <!-- USAGE EXAMPLES -->
 # Vars
 
+## K3s 
+
 | vars | description | option |
 | --- | --- | --- |
 | `flannel` | standard cluster network solution | default: disabled |
@@ -101,6 +103,20 @@
 | `nextcloud` | installs nextcloud inside a k3s cluster |
 | `wikijs` | installs wikijs inside a k3s cluster |
 | `psql` | installs psql inside a k3s cluster |
+
+## K8s
+
+| vars | description | option |
+| --- | --- | --- |
+| `flannel` | standard cluster network solution | default: disabled |
+| `kube-proxy` | manages traffic, routing inside k3s | default: disabled |
+| `service-lb` | for providing loadbalancing capabilities | default: disabled |
+| `network-policy` | standard for controlling flow of traffic | default: disabled |
+| `traefik` | for exposing services to outside of the cluster | default: disabled |
+
+## K0s
+
+## Minikube
 
 
 
