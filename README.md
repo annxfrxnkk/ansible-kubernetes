@@ -65,9 +65,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
-## Usage
-
-<h3> K3s </h3>
+# Vars
 
 | vars | description | option |
 | --- | --- | --- |
@@ -103,6 +101,8 @@
 | `nextcloud` | installs nextcloud inside a k3s cluster |
 | `wikijs` | installs wikijs inside a k3s cluster |
 | `psql` | installs psql inside a k3s cluster |
+
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
