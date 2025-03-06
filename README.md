@@ -68,7 +68,7 @@
 
 ## K3s 
 
-- For installing k3s use the following command below.
+For installing k3s use the following command below.
 
 ```bash
 ansible-playbook main.yaml -i inventory.yaml -e "k3s"
