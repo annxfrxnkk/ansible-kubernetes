@@ -112,5 +112,5 @@
 [Helm-url]: https://helm.sh/
 [Ansible]: https://img.shields.io/badge/ansible-000000?style=for-the-badge&logo=ansible&logoColor=white
 [Ansible-url]: https://ansible.com/
-[K3s]: https://img.shields.io/badge/K3s-FFC61C?style=for-the-badge&logo=k3s&logoColor=white
-[K3s-url]: https://ansible.com/
+[K8s]: https://img.shields.io/badge/K8s-326CE5?style=for-the-badge&logo=k8s&logoColor=white
+[K8s-url]: https://ansible.com/
