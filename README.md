@@ -19,7 +19,7 @@
 
 [![Ansible][Ansible]][Ansible-url] 
 <br />
-[![K3s][K3s]][K3s-url]
+[![K8s][K8s]][K8s-url]
 <br />
 [![Helm][Helm]][Helm-url]
 
