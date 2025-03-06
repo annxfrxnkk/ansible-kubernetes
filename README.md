@@ -112,6 +112,12 @@ ansible-playbook main.yaml -i inventory.yaml -e "k3s"
 
 ## K8s
 
+For installing k8s use the following command below.
+
+```bash
+ansible-playbook main.yaml -i inventory.yaml -e "k8s"
+```
+
 | vars | description | option |
 | --- | --- | --- |
 | `flannel` | standard cluster network solution | default: disabled |
@@ -122,7 +128,19 @@ ansible-playbook main.yaml -i inventory.yaml -e "k3s"
 
 ## K0s
 
+For installing k0s use the following command below.
+
+```bash
+ansible-playbook main.yaml -i inventory.yaml -e "k0s"
+```
+
 ## Minikube
+
+For installing minikube use the following command below.
+
+```bash
+ansible-playbook main.yaml -i inventory.yaml -e "minikube"
+```
 
 
 
