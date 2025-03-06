@@ -5,7 +5,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/kubernetes-logo-sticker.jpg" alt="Logo" width="150" height="80">
+    <img src="images/icons8-kubernetes-144.png" alt="Logo" width="150" height="80">
   </a>
 
   <h3 align="center">Ansible + Kubernetes</h3>
