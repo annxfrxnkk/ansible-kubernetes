@@ -1,4 +1,4 @@
-# ansible-kvm
+# ansible-kubernetes
 
 
 <!-- PROJECT LOGO -->
@@ -8,11 +8,11 @@
     <img src="images/k3s-logo-large.png" alt="Logo" width="150" height="80">
   </a>
 
-  <h3 align="center">AWX + K3s</h3>
+  <h3 align="center">Ansible + Kubernetes</h3>
 
   <p align="center">
     <br />
-    An ansible project that is used to deploy K3s Clusters and other services
+    An ansible project that is used to deploy different types of Kubernetes versions
     <br />
   </p>
 </div>
