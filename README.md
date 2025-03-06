@@ -68,6 +68,11 @@
 
 ## K3s 
 
+```bash
+ansible-playbook main.yaml -i inventory.yaml -e "k3s"
+```
+
+
 | vars | description | option |
 | --- | --- | --- |
 | `flannel` | standard cluster network solution | default: disabled |
