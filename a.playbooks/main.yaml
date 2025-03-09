@@ -5,22 +5,41 @@
   tasks:      
     - name: Add new master node to the masters group
       add_host:
-        groupname: masters
+        groupname: nodes
         name: "{{ item.hostname }}"
         ansible_host: "{{ item.ip }}"
-        ansible_user: "{{ item.ssh_user }}"
+        #ansible_user: "{{ item.ssh_user }}"
         cluster_init: "{{ item.cluster_init }}"
-        #join_cluster: "{{ item.join_cluster | default('') }}"
+        type: "{{ item.type }}"
+        join_cluster: "{{ item.join_cluster | default('') }}"
       loop:
-        - { hostname: "master1", ip: "192.168.122.192", ssh_user: "root", cluster_init: true }
-        - { hostname: "master2", ip: "192.168.122.35", ssh_user: "root", cluster_init: false } #join_cluster: "192.168.122.192" }
-        - { hostname: "master3", ip: "192.168.122.74", ssh_user: "root", cluster_init: false } #join_cluster: "192.168.122.192" }
+        - { hostname: "master1", ip: "192.168.122.192", cluster_init: true, type: master }
+        - { hostname: "worker1", ip: "192.168.122.35", cluster_init: false, type: worker, join_cluster: "192.168.122.192" }
+        - { hostname: "worker2", ip: "192.168.122.74", cluster_init: false, type: worker, join_cluster: "192.168.122.192" }
 
    
+    # - name: Setup SSH Keys
+    #   community.crypto.openssh_keypair:
+    #     path: $HOME/.ssh/id_ssh_dsa
+    #     type: ed25519
 - name: test
-  hosts: all
+  hosts: nodes
+  gather_facts: no
   tasks:
-    - name:
-      shell: |
-        curl -sLS https://get.k3sup.dev | sh
-        k3sup install --local {{ '--cluster' if cluster_init else '' }}
+    - name: Cluster Setup
+      delegate_to: localhost
+      block:
+        # - name: Install K3sup on controller
+        #   shell: |
+        #     curl -sLS https://get.k3sup.dev | sh
+
+        - name: Installing Master Node(s)
+          shell: |
+            k3sup install --ip {{ ansible_host }} {{ '--cluster' if cluster_init else '' }} --ssh-key $HOME/.ssh/id_ed25519
+          when: type == "master"
+
+        - name: Create K3s Cluster
+          shell: |
+            k3sup join {{ '--server' if type == "master" else '' }} --server-ip {{ join_cluster }} --ip {{ ansible_host }} --ssh-key $HOME/.ssh/id_ed25519
+          when: type == "worker"
+

@@ -1,11 +1,27 @@
 ---
-- name: K3s Cluster Installation
-  hosts: all
+- name: test
+  hosts: localhost
+  vars:
+    node:
+      - "192.168.122.35"
   tasks:
-    
-    - name: Installing Components
-      ansible.builtin.include_role:
-        name: "K3s"
-        tasks_from: "cluster"
+    - name: generate json file from node vars
+      copy:
+        content: |
+          [
+          {% for n in node %}
+            {
+              "hostname": "{{ n }}"
+            }{% if not loop.last %},{% endif %}
+          {% endfor %}
+          ]
+        dest: json.json
 
-      
+    - name: Install k3sup bin
+      shell: |
+        curl -sLS https://get.k3sup.dev | sh
+
+    - name: Install k3sup server
+      shell: |
+        k3sup plan plan.json --user root --servers 1 --server-k3s-extra-args "--disable traefik" | sh
+

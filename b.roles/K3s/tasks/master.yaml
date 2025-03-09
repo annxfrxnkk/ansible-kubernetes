@@ -1,0 +1,8 @@
+---
+- name: Master
+  block: 
+    
+    - name: Installing Master node
+      shell: |
+
+

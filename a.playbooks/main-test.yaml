@@ -1,0 +1,24 @@
+---
+- name: Add master and new workers to the inventory and install K3s
+  hosts: localhost
+  gather_facts: no
+  tasks:      
+    - name: Add new master node to the masters group
+      add_host:
+        groupname: nodes
+        name: "{{ item.hostname }}"
+        ansible_host: "{{ item.ip }}"
+        #ansible_user: "{{ item.ssh_user }}"
+        cluster_init: "{{ item.cluster_init }}"
+        type: "{{ item.type }}"
+        join_cluster: "{{ item.join_cluster | default('') }}"
+      loop:
+        - { hostname: "master1", ip: "192.168.122.192", cluster_init: true, type: master }
+        - { hostname: "worker1", ip: "192.168.122.35", cluster_init: false, type: worker, join_cluster: "192.168.122.192" }
+        - { hostname: "worker2", ip: "192.168.122.74", cluster_init: false, type: worker, join_cluster: "192.168.122.192" }
+      register: test
+
+    - name: test
+      debug:
+        msg: "{{ test }}"
+
