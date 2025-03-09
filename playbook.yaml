@@ -1,0 +1,22 @@
+---
+- name: credentialdebug
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  any_errors_fatal: true
+  vars:
+    vault_lookups:
+      - '{{ vault_secret1 }}'
+      - '{{ vault_secret2 }}'
+      - '{{ vault_secret3 }}'
+      - '{{ vault_secret4 }}'
+      - '{{ vault_secret5 }}'
+  tasks:
+    - name: print credentials
+      debug:
+        msg: | 
+          Secret1 is "{{ vault_lookups[0] }}".
+          Secret2 is "{{ vault_lookups[1] }}".
+          Secret3 is "{{ vault_lookups[2] }}".
+          Secret4 is "{{ vault_lookups[3] }}".
+          Secret5 is "{{ vault_lookups[4] }}".
