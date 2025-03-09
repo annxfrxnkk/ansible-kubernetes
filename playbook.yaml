@@ -1,7 +1,6 @@
 ---
 - name: pacman
   hosts: all
-  connection: local
   gather_facts: false
   any_errors_fatal: true
   tasks:
