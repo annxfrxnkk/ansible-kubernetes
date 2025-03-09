@@ -1,11 +1,12 @@
 ---
-- name: credentialdebug
-  hosts: localhost
+- name: pacman
+  hosts: all
   connection: local
   gather_facts: false
   any_errors_fatal: true
   tasks:
-    - name: print credentials
-      debug:
-        msg: | 
-          Secret1 is "{{ vault_secret1}}".
+    - name: Ensure curl is installed
+      pacman:
+        name: curl
+        state: present
+      
