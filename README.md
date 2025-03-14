@@ -118,14 +118,6 @@ For installing k8s use the following command below.
 ansible-playbook main.yaml -i inventory.yaml -e "k8s"
 ```
 
-| vars | description | option |
-| --- | --- | --- |
-| `flannel` | standard cluster network solution | default: disabled |
-| `kube-proxy` | manages traffic, routing inside k3s | default: disabled |
-| `service-lb` | for providing loadbalancing capabilities | default: disabled |
-| `network-policy` | standard for controlling flow of traffic | default: disabled |
-| `traefik` | for exposing services to outside of the cluster | default: disabled |
-
 ## K0s
 
 For installing k0s use the following command below.
