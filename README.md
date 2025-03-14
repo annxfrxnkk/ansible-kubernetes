@@ -109,6 +109,7 @@ ansible-playbook main.yaml -i inventory.yaml -e "k3s"
 | `nextcloud` | installs nextcloud inside a k3s cluster |
 | `wikijs` | installs wikijs inside a k3s cluster |
 | `psql` | installs psql inside a k3s cluster |
+| `vault` | installs hashicorp inside a k3s cluster |
 
 ## K8s
 
