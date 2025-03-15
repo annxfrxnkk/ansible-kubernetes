@@ -6,7 +6,7 @@
       add_host:
         name: "{{ item.ip }}"
         ansible_host: "{{ item.ip }}"
-        node_role: "{{ item.role }}"
+        role: "{{ item.role }}"
       loop: "{{ nodes }}"
 
     - name: "Install K3s for all nodes"
