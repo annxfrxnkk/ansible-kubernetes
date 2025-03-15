@@ -1,7 +1,7 @@
 # K3s Master Node Installation Task
 - name: "==================== Installing K3s Master Node ===================="
   shell: |
-    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --cloud-init
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --cluster-init
   loop: "{{ nodes }}"
   loop_control:
     loop_var: item
