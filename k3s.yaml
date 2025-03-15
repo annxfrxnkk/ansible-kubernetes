@@ -9,7 +9,10 @@
         role: "{{ item.role }}"
       loop: "{{ nodes }}"
 
-    - name: "Install K3s for all nodes"
+- name: Install K3s Cluster
+  hosts: all
+  tasks:
+    - name: K3s Role
       import_role:
         name: K3s
 
