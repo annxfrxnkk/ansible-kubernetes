@@ -28,4 +28,4 @@
   loop: "{{ nodes }}"
   loop_control:
     loop_var: item
-  when: "item.worker is defined"
+  delegate_to: "{{ nodes[0].worker }}"
