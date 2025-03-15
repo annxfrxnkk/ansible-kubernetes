@@ -11,11 +11,11 @@
         src: /var/lib/rancher/k3s/server/node-token
       register: token
 
-    - name: Save Token for Joining Nodes
-      set_fact:
-        k3s_token: "{{ token.content | b64decode }}"
-        cacheable: true
-      delegate_to: localhost
+- name: Save Token for Joining Nodes
+  set_fact:
+    k3s_token: "{{ token.content | b64decode }}"
+    cacheable: true
+  delegate_to: localhost
 
 - name: Add Master Nodes to HA Cluster
   shell: |
