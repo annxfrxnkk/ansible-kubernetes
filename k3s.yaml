@@ -1,8 +1,6 @@
 - name: Register K3s Nodes
   hosts: localhost
   gather_facts: no
-  roles:
-    - K3s
   tasks:
     - name: "Add K3s nodes to dynamic inventory"
       add_host:
@@ -10,5 +8,9 @@
         ansible_host: "{{ item.ip }}"
         node_role: "{{ item.role }}"
       loop: "{{ nodes }}"
+
+    - name: "Install K3s for all nodes"
+      import_role:
+        name: K3s
 
       
