@@ -5,7 +5,7 @@
   loop: "{{ nodes }}"
   loop_control:
     loop_var: item
-  when: "item.master is defined"
+  delegate_to: "{{ nodes[0].master }}"
 
 - name: "==================== Extracting K3s Node Token ====================="
   slurp:
@@ -14,7 +14,7 @@
   loop: "{{ nodes }}"
   loop_control:
     loop_var: item
-  when: "item.master is defined"
+  when: "{{ nodes[0].master }}"
 
 - name: "==================== Saving Node Token as a Fact ====================="
   set_fact:
