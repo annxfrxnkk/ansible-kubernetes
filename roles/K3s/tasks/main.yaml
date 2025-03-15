@@ -5,7 +5,6 @@
     - name: Installing K3s Cluster
       shell: |
         curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --cluster-init
-      when: cluster == "true"
 
     - name: Extract Token from Master Cluster Node
       slurp:
