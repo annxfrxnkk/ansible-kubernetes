@@ -1,6 +1,6 @@
 ---
 - name: K3s Setup
-  when: role == "main"
+  when: role in ['main']
   block:
     - name: Installing K3s Cluster
       shell: |
@@ -11,18 +11,26 @@
         src: /var/lib/rancher/k3s/server/node-token
       register: token
 
-- name: Save Token for Joining Nodes
+    - name: Save Token for Joining Nodes
+      set_fact:
+        k3s_token: "{{ token.content | b64decode }}"
+        cacheable: true
+        #delegate_to: localhost
+
+- name: Find the Main Master's IP
   set_fact:
-    k3s_token: "{{ token.content | b64decode }}"
-    cacheable: true
-  delegate_to: localhost
+    master_ip: "{{ item.ip }}"
+  when: role in ['main']
+  loop: "{{ nodes }}"
 
 - name: Add Master Nodes to HA Cluster
+  when: role in ['master']
   shell: |
-    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --server {{ master_ip }}:6443 --token {{ k3s_token }}
-  when: role == "master"
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --server {{ master_ip }}:6443 --token {{ hostvars['k3s_token'] }}
 
 - name: Add Worker Nodes to HA Cluster
+  when: role in ['worker']
   shell: |
-    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent" sh -s - --server {{ master_ip }}:6443 --token {{ k3s_token }}
-  when: role == "worker"
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent" sh -s - --server {{ master_ip }}:6443 --token {{ hostvars['k3s_token'] }}
+
+
