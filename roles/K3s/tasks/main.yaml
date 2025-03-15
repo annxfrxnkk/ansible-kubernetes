@@ -18,10 +18,9 @@
 
 - name: "==================== Saving Node Token as a Fact ====================="
   set_fact:
-    k3s_node_token: "{{ k3s_token.content }}"
+    k3s_node_token: "{{ k3s_token }}"
     cacheable: true
 
-# K3s Worker Node Installation Task
 - name: "==================== Installing K3s Worker Node ====================="
   shell: |
     curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent --server https://{{ item.master }}:6443 --token {{ k3s_node_token }}" sh -
