@@ -14,7 +14,7 @@
   loop: "{{ nodes }}"
   loop_control:
     loop_var: item
-  when: "{{ nodes[0].master }}"
+  delegate_to: "{{ nodes[0].master }}"
 
 - name: "==================== Saving Node Token as a Fact ====================="
   set_fact:
