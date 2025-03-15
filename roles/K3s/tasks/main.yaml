@@ -21,7 +21,5 @@
 - name: "==================== Installing K3s Worker Node ====================="
   shell: |
     curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent --server https://{{ item.master }}:6443 --token {{ k3s_node_token }}" sh -
-  loop: "{{ nodes }}"
-  loop_control:
-    loop_var: item
+  when: "item.worker is defined"
   delegate_to: "{{ item.worker }}"
