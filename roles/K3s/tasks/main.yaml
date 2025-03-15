@@ -15,7 +15,6 @@
       set_fact:
         k3s_token: "{{ token.content | b64decode }}"
         cacheable: true
-        #delegate_to: localhost
 
 - name: Find the Main Master's IP
   set_fact:
@@ -26,11 +25,11 @@
 - name: Add Master Nodes to HA Cluster
   when: role in ['master']
   shell: |
-    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --server {{ master_ip }}:6443 --token {{ hostvars['k3s_token'] }}
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --server {{ master_ip }}:6443 --token {{ hostvars['main'].k3s_token }}
 
 - name: Add Worker Nodes to HA Cluster
   when: role in ['worker']
   shell: |
-    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent" sh -s - --server {{ master_ip }}:6443 --token {{ hostvars['k3s_token'] }}
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent" sh -s - --server {{ master_ip }}:6443 --token {{ hostvars['main'].k3s_token }}
 
 
