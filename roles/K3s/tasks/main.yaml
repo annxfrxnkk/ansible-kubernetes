@@ -13,16 +13,16 @@
 
     - name: Save Token for Joining Nodes
       set_fact:
-        k3s_node_token: "{{ token }}"
+        token: "{{ k3s_token }}"
         cacheable: true
   
 
 - name: Add Master Nodes to HA Cluster
   shell: |
-    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --server {{ master_ip }}:6443 --token "{{ k3s_node_token }}"
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --server {{ master_ip }}:6443 --token {{ k3s_token }}
   when: role == "master"
 
 - name: Add Worker Nodes to HA Cluster
   shell: |
-    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent" sh -s - --server {{ master_ip }}:6443 --token "{{ k3s_node_token }}"
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent" sh -s - --server {{ master_ip }}:6443 --token {{ k3s_token }}
   when: role == "worker"
