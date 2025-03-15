@@ -1,0 +1,4 @@
+- name: Install K3s Cluster
+  hosts: localhost
+  roles:
+    - k3s
