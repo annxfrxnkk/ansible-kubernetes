@@ -1,9 +1,6 @@
 # K3s Master Node Installation Task
 - name: "==================== K3s Setup ===================="
   block:
-  loop: "{{ nodes }}"
-  when: "item.master is defined"
-  delegate_to: "{{ item.master }}"
     - name: "==================== Installing K3s Master Node ===================="
       shell: |
         curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --cluster-init
@@ -17,6 +14,10 @@
       set_fact:
         k3s_node_token: "{{ k3s_token }}"
         cacheable: true
+  when: "item.master is defined"
+  loop: "{{ nodes }}"
+  delegate_to: "{{ item.master }}"
+
 
 - name: "==================== Installing K3s Worker Node ====================="
   shell: |
