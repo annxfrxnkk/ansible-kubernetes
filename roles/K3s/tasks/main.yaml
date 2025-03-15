@@ -15,7 +15,6 @@
         k3s_node_token: "{{ k3s_token }}"
         cacheable: true
   when: "item.master is defined"
-  loop: "{{ nodes }}"
   delegate_to: "{{ item.master }}"
 
 
