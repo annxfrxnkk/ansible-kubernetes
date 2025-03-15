@@ -19,10 +19,10 @@
 
 - name: Add Master Nodes to HA Cluster
   shell: |
-    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --server {{ item.ip }}:6443 --token "{{ token }}"
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --server {{ main_ip }}:6443 --token "{{ token }}"
   when: role == "master"
 
 - name: Add Worker Nodes to HA Cluster
   shell: |
-    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent" sh -s - --server {{ item.ip }}:6443 --token "{{ token }}"
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent" sh -s - --server {{ main_ip }}:6443 --token "{{ token }}"
   when: role == "worker"
