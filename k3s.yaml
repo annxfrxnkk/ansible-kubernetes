@@ -12,12 +12,6 @@
 - name: Install K3s Cluster
   hosts: all
   tasks:
-    - name: Find the Main Master's IP
-      set_fact:
-        master_ip: "{{ item.ip }}"
-      when: item.role == "main"
-      loop: "{{ nodes }}"
-
     - name: K3s Role
       import_role:
         name: K3s
