@@ -1,4 +1,10 @@
 - name: Install K3s Cluster
   hosts: localhost
-  roles:
-    - K3s
+  tasks:
+
+    - name: Install K3s Role for Each Node
+      include_role:
+        name: K3s
+      loop: "{{ nodes }}"
+      loop_control:
+        loop_var: node
