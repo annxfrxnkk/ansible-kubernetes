@@ -5,7 +5,6 @@
     - name: "Add K3s nodes to dynamic inventory"
       add_host:
         name: "{{ item.ip }}"
-        ansible_host: "{{ item.ip }}"
         role: "{{ item.role }}"
       loop: "{{ nodes }}"
 
@@ -15,7 +14,7 @@
     - name: Find the Main Master's IP
       set_fact:
         master_ip: "{{ item.ip }}"
-      when: role in ['main']
+      when: role == "main"
       loop: "{{ nodes }}"
 
     - name: K3s Role
