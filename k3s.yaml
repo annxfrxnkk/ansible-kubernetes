@@ -30,7 +30,7 @@
           {% if not service_lb %}--disable servicelb {% endif %}
           {% if not network_policy %}--disable network-policy {% endif %}
           {% if not flannel %}--flannel-backend=none {% endif %}
-          {% if not node_taint %}--node-taint {% endif %}
+          {% if not node_taint %}--node-taint 'node-role.kubernetes.io/control-plane:NoSchedule' {% endif %}
           {% if not cluster_init %}--cluster-init{% endif %}
 
     - name: Install K3s on master node
