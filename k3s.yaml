@@ -1,20 +1,22 @@
+---
 - name: Dynamically generate inventory and install K3s
   hosts: localhost
   gather_facts: no
   tasks:
-    ansible.builtin.add_host:
-      hostname: "{{ item.ip }}"
-      groups: "k3s"
-      ansible_host: "{{ item.ip }}"
-      role: "{{ item.role }}"  # Default role if not provided
-      flannel: "{{ item.flannel | default(false) }}"
-      kube-proxy: "{{ item.kube-proxy | default(false) }}"
-      service-lb: "{{ item.service-lb | default(false) }}"
-      traefik: "{{ item.traefik | default(false) }}"
-      network-policy: "{{ item.network-policy | default(false) }}"
-      app: "{{ item.app | default([]) }}"
-      storage: "{{ item.storage | default([]) }}"
-    loop: "{{ nodes }}"
+    - name: Dynamic Inventory
+      ansible.builtin.add_host:
+        hostname: "{{ item.ip }}"
+        groups: "k3s"
+        ansible_host: "{{ item.ip }}"
+        role: "{{ item.role }}"  # Default role if not provided
+        flannel: "{{ item.flannel | default(false) }}"
+        kube-proxy: "{{ item.kube-proxy | default(false) }}"
+        service-lb: "{{ item.service-lb | default(false) }}"
+        traefik: "{{ item.traefik | default(false) }}"
+        network-policy: "{{ item.network-policy | default(false) }}"
+        app: "{{ item.app | default([]) }}"
+        storage: "{{ item.storage | default([]) }}"
+      loop: "{{ nodes }}"
     
 - name: Install K3s
   hosts: k3s
