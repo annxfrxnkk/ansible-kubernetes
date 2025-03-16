@@ -1,19 +1,40 @@
-- name: Register K3s Nodes
+- name: Dynamically generate inventory and install K3s
   hosts: localhost
   gather_facts: no
   tasks:
-    - name: "Add K3s nodes to dynamic inventory"
-      add_host:
-        name: "{{ item.ip }}"
-        role: "{{ item.role }}"
-      loop: "{{ nodes }}"
-
-- name: Install K3s Cluster
-  hosts: all
+    ansible.builtin.add_host:
+      hostname: "{{ item.ip }}"
+      groups: "k3s"
+      ansible_host: "{{ item.ip }}"
+      role: "{{ item.role }}"  # Default role if not provided
+      flannel: "{{ item.flannel | default(false) }}"
+      kube-proxy: "{{ item.kube-proxy | default(false) }}"
+      service-lb: "{{ item.service-lb | default(false) }}"
+      traefik: "{{ item.traefik | default(false) }}"
+      network-policy: "{{ item.network-policy | default(false) }}"
+      app: "{{ item.app | default([]) }}"
+      storage: "{{ item.storage | default([]) }}"
+    loop: "{{ nodes }}"
+    
+- name: Install K3s
+  hosts: k3s
   tasks:
-    - name: K3s Role
-      import_role:
-        name: K3s
+    - name: Build K3s installation options
+      set_fact:
+        k3s_options: >-
+          {% if not item.traefik %}--disable traefik {% endif %}
+          {% if not item.kube-proxy %}--disable kube-proxy {% endif %}
+          {% if not item.service-lb %}--disable servicelb {% endif %}
+          {% if not item.network-policy %}--disable network-policy {% endif %}
+          {% if not item.flannel %}--flannel-backend=none {% endif %}
+          {% if not item.node-taint %}--node-taint {% endif %}
+          {% if not item.cluster-init %}--cluster-init{% endif %}
 
+    - name: Install K3s on master node
+      shell: |
+        curl -sfL https://get.k3s.io | sh -s - server {{ k3s_options }}
+      when: item.role == "main"
+      loop: "{{ nodes }}"
+      become: true
     
       
