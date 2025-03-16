@@ -10,10 +10,12 @@
         ansible_host: "{{ item.ip }}"
         role: "{{ item.role }}"  # Default role if not provided
         flannel: "{{ item.flannel | default(false) }}"
-        kube-proxy: "{{ item.kube-proxy | default(false) }}"
-        service-lb: "{{ item.service-lb | default(false) }}"
+        kube_proxy: "{{ item.kube_proxy | default(false) }}"
+        service_lb: "{{ item.service_lb | default(false) }}"
         traefik: "{{ item.traefik | default(false) }}"
-        network-policy: "{{ item.network-policy | default(false) }}"
+        node_taint: "{{ item.node_taint | default(false) }}"
+        cluster_init: "{{ item.cluster_init | default(false) }}"
+        network_policy: "{{ item.network_policy | default(false) }}"
         app: "{{ item.app | default([]) }}"
         storage: "{{ item.storage | default([]) }}"
       loop: "{{ nodes }}"
@@ -25,12 +27,12 @@
       set_fact:
         k3s_options: >-
           {% if not item.traefik %}--disable traefik {% endif %}
-          {% if not item.kube-proxy %}--disable kube-proxy {% endif %}
-          {% if not item.service-lb %}--disable servicelb {% endif %}
-          {% if not item.network-policy %}--disable network-policy {% endif %}
+          {% if not item.kube_proxy %}--disable kube-proxy {% endif %}
+          {% if not item.service_lb %}--disable servicelb {% endif %}
+          {% if not item.network_policy %}--disable network-policy {% endif %}
           {% if not item.flannel %}--flannel-backend=none {% endif %}
-          {% if not item.node-taint %}--node-taint {% endif %}
-          {% if not item.cluster-init %}--cluster-init{% endif %}
+          {% if not item.node_taint %}--node-taint {% endif %}
+          {% if not item.cluster_init %}--cluster-init{% endif %}
 
     - name: Install K3s on master node
       shell: |
