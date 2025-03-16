@@ -1,7 +1,6 @@
 ---
 - name: Dynamically generate inventory and install K3s
   hosts: localhost
-  gather_facts: no
   tasks:
     - name: Dynamic Inventory
       ansible.builtin.add_host:
@@ -26,13 +25,13 @@
     - name: Build K3s installation options
       set_fact:
         k3s_options: >-
-          {% if not item.traefik %}--disable traefik {% endif %}
-          {% if not item.kube_proxy %}--disable kube-proxy {% endif %}
-          {% if not item.service_lb %}--disable servicelb {% endif %}
-          {% if not item.network_policy %}--disable network-policy {% endif %}
-          {% if not item.flannel %}--flannel-backend=none {% endif %}
-          {% if not item.node_taint %}--node-taint {% endif %}
-          {% if not item.cluster_init %}--cluster-init{% endif %}
+          {% if not traefik %}--disable traefik {% endif %}
+          {% if not kube_proxy %}--disable kube-proxy {% endif %}
+          {% if not service_lb %}--disable servicelb {% endif %}
+          {% if not network_policy %}--disable network-policy {% endif %}
+          {% if not flannel %}--flannel-backend=none {% endif %}
+          {% if not node_taint %}--node-taint {% endif %}
+          {% if not cluster_init %}--cluster-init{% endif %}
 
     - name: Install K3s on master node
       shell: |
