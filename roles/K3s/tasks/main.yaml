@@ -16,6 +16,13 @@
         k3s_token: "{{ token.content | b64decode }}"
         cacheable: true
 
+- name: Find the Main Master's IP
+  delegate_to: localhost
+  set_fact:
+    master_ip: "{{ item.ip }}"
+  when: role == "main"
+  loop: "{{ nodes }}"
+
 - name: Add Master Nodes to HA Cluster
   when: role in ['master']
   shell: |
